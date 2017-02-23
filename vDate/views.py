@@ -1,14 +1,23 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from .models import *
+from .forms import *
 # Create your views here.
-def post_new(request):
-	if request.method == "POST":
+
+def newBoy(request):
+	if request.method == 'POST':
 		form = BoyForm(request.POST)
 		if form.is_valid():
-			post = form.save(commit=False)
-			post.author = request.user
-			post.save()
-			return redirect('post_detail', pk=post.pk)
+			return HttpResponseRedirect('boys.html')
 	else:
 		form = PostForm()
-	return render(request, 'blog/post_edit.html', {'form': form})
+	return render(request, 'new_boy.html', {'form': form})
+
+def newGirl(request):
+	if request.method == 'POST':
+		form = GirlForm(request.POST)
+		if form.is_valid():
+			return HttpResponseRedirect('girl.html')
+	else:
+		form = PostForm()
+	return render(request, 'new_girl.html', {'form': form})

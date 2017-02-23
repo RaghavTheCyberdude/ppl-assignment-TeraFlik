@@ -3,12 +3,29 @@ from django import forms
 from .choices import *
 # Create your models here.
 
-class Person(models.Model):
-	"""The Basic Person Model/Class for representing both Boys and Girls"""
+class Girl(models.Model):
 	name = models.CharField(max_length=100)
 	attractivenes = models.FloatField()
 	intelligenceLevel = models.FloatField()
 	isCommitted = models.BooleanField(default=False)
+	maintenanceBudget = models.DecimalField(max_digits=13, decimal_places=2)
+	datingCriteria = models.IntegerField(choices=datingCriteriaChoices)
+	girlType = models.IntegerField(choices=committedGirlTypes, default=None)
+	def __str__(self):
+		return self.name
+		
+	def commit(self):
+		self.isCommitted = True
+		self.save()
+	
+class Boy(models.Model):
+	name = models.CharField(max_length=100)
+	attractivenes = models.FloatField()
+	intelligenceLevel = models.FloatField()
+	isCommitted = models.BooleanField(default=False)
+	budget = models.DecimalField(max_digits=13, decimal_places=2)
+	attractionRequirement = models.FloatField()
+	boyType = models.IntegerField(choices=committedBoyTypes, default=None)
 
 	def __str__(self):
 		return self.name
@@ -16,16 +33,6 @@ class Person(models.Model):
 	def commit(self):
 		self.isCommitted = True
 		self.save()
-
-class Girl(Person):
-	maintenanceBudget = models.DecimalField(max_digits=13, decimal_places=2)
-	datingCriteria = models.IntegerField(choices=datingCriteriaChoices)
-	girlType = models.IntegerField(choices=committedGirlTypes, default=None)
-	
-class Boy(Person):
-	budget = models.DecimalField(max_digits=13, decimal_places=2)
-	attractionRequirement = models.FloatField()
-	boyType = models.IntegerField(choices=committedBoyTypes, default=None)
 
 	def increaseBudget(self, increase):
 		budget = budget + increase;
