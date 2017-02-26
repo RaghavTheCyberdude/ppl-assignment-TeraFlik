@@ -4,6 +4,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
+from datetime import datetime
 from .choices import *
 # Create your models here.
 
@@ -87,25 +88,11 @@ class Relation(models.Model):
 			return "%s is with %s" % (self.girl.name, self.boy.name)
 		return "%s was with %s" % (self.girl.name, self.boy.name)
 
-	def addRelation(boy, girl):
-		if boy.budget >= girl.maintenanceBudget:
-			raise Exception("Boy's budget not enough!")
-		elif girl.attractiveness >= boy.attractionRequirement:
-			raise Exception("Girl not attractive enough!")
-		elif girl.isCommitted:
-			raise Exception("Girl already committed!")
-		elif boy.isCommitted:
-			raise Exception("Boy already committed!")
-		else:
-			boy.commit()
-			girl.commit()
-			self.save()
-
 	def breakup(self):
-		self.breakupOn = timezone.now
+		self.breakupOn = datetime.now()
 		self.girl.leave()
 		self.boy.leave()
-		self.save()
+		self.delete()
 
 class Exchange(models.Model):
 	relation = models.ForeignKey('vDate.Relation', related_name='exchanges')

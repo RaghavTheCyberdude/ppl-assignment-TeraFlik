@@ -1,31 +1,132 @@
 {% extends 'vDate/base.html' %}
-
+{% load humanize %}
 {% block content %}
-<header>
-	<h2>Girls</h2>
-</header>
+
+<section class="row">
+	<div class="col-sm-6">
+		<h1>Gifts <span class="badge">{{ essentialGiftsList.count|add:luxuryGiftsList.count|add:utilityGiftsList.count }}</span></h1>
+	</div>
+	<div class="col-sm-6">	
+		<form class="form-inline" method="POST">{% csrf_token %}
+			<div class="input-group">
+				<input id="id_auto-number" class="form-control" max="200" name="auto-number" type="number" placeholder="Number" required/>
+				<span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+				<select id="id_auto-giftType" class="form-control" name="auto-giftType" required>
+					<option value="1">Essential Gift</option>
+					<option value="2">Luxury Gift</option>
+					<option value="3">Utility Gift</option>
+				</select>
+				<span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary">Generate Random Entries</button>
+				</span>
+			</div>
+		</form>
+	</div>
+</section>
+
 <section>
-	<h3>Essential</h3>
-	<ul>
-	{% for gift in essentialGiftslist %}
-		<li>{{ gift }}</li>
-	{% endfor %}
-	</ul>
+<h3>Essential Gifts <span class="badge">{{ essentialGiftsList.count }}</span></h3>
+	<div class="table-responsive">
+		<form method="POST">{% csrf_token %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Price</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for gift in essentialGiftsList %}
+			<tr>
+				<td>{{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-2" }}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				{% for field in essentialGiftForm %}
+				<td>
+					{{ field }}
+					{{ field.errors }}
+				</td>
+				{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 </section>
 <section>
-	<h3>Luxury</h3>
-	<ul>
-	{% for gift in luxuryGiftslist %}
-		<li>{{ gift }}</li>
-	{% endfor %}
-	</ul>
+<h3>Luxury Gifts <span class="badge">{{ luxuryGiftsList.count }}</span></h3>
+	<div class="table-responsive">
+		<form method="POST">{% csrf_token %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Price</th>
+					<th>Value</th>
+					<th>Luxury Rating</th>
+					<th>Difficulty to Obtain</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for gift in luxuryGiftsList %}
+			<tr>
+				<td>{{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-2" }}</td>
+				<td>{{ gift.luxuryRating|floatformat:"-2" }}</td>
+				<td>{{ gift.difficultyToObtain|floatformat:"-2" }}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				{% for field in luxuryGiftForm %}
+				<td>
+					{{ field }}
+					{{ field.errors }}
+				</td>
+				{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 </section>
 <section>
-	<h3>Utility</h3>
-	<ul>
-	{% for gift in utilityGiftslist %}
-		<li>{{ gift }}</li>
-	{% endfor %}
-	</ul>
+<h3>Utility Gifts <span class="badge">{{ utilityGiftsList.count }}</span></h3>
+	<div class="table-responsive">
+		<form method="POST">{% csrf_token %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Price</th>
+					<th>Value</th>
+					<th>Utility Rating</th>
+					<th>Utility Class</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for gift in utilityGiftsList %}
+			<tr>
+				<td>{{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-2" }}</td>
+				<td>{{ gift.utilityValue|floatformat:"-2" }}</td>
+				<td>{{ gift.get_utilityClass_display}}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				{% for field in utilityGiftForm %}
+				<td>
+					{{ field }}
+					{{ field.errors }}
+				</td>
+				{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 </section>
 {% endblock %}

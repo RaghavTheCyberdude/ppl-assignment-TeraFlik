@@ -1,5 +1,6 @@
 from .models import *
 import random
+from datetime import datetime
 from vDate.names.name import get_full_name
 
 attractionMin = 1
@@ -11,7 +12,7 @@ intelligenceMode = 7
 intelligenceMax = 10
 
 maintenanceBudgetMin = 500
-maintenanceBudgetMode = 2000
+maintenanceBudgetMode = 5000
 maintenanceBudgetMax = 50000
 
 budgetMin = 1000
@@ -27,8 +28,8 @@ luxuryGiftMode = 5000
 luxuryGiftMax = 50000
 
 ratingMin = 1
-ratingMax = 10
-ratingMode = 5
+ratingMax = 5
+ratingMode = 2
 
 def newRandomBoy():
 	name = get_full_name('male')
@@ -52,19 +53,41 @@ def newRandomGirl():
 def newEssentialGift():
 	price =  random.triangular(giftMin, giftMax, giftMode)
 	value = price
-	EssentialGift.objects.create(price=price, value=price)
+	EssentialGift.objects.create(price=price, value=value)
 
 def newLuxuryGift():
-	price =  random.triangular(giftMin, giftMax, giftMode)
+	price =  random.triangular(luxuryGiftMin, luxuryGiftMax, luxuryGiftMode)
 	rating = random.triangular(ratingMin, ratingMax, ratingMode)
 	difficultyToObtain = random.triangular(ratingMin, ratingMax, ratingMode)
 	value = price * rating
-	EssentialGift.objects.create(price=price, value=price, luxuryRating=luxury, difficultyToObtain=difficultyToObtain)
+	LuxuryGift.objects.create(price=price, value=value, luxuryRating=rating, difficultyToObtain=difficultyToObtain)
 
 def newUtilityGift():
 	price =  random.triangular(giftMin, giftMax, giftMode)
-	utilityRating = random.triangular(ratingMin, ratingMax/2, ratingMode/2)
+	utilityValue = random.triangular(ratingMin, ratingMax/2, ratingMode/2)
 	utilityClass = random.randint(1,5)
-	value = price * rating
-	EssentialGift.objects.create(price=price, value=price, luxuryRating=rating, utilityClass=utilityClass)
+	value = price * utilityValue
+	UtilityGift.objects.create(price=price, value=value, utilityValue=utilityValue, utilityClass=utilityClass)
 
+def findMatch(girl):
+	if girl.isCommitted:
+		return None
+	boyList = Boy.objects.filter(isCommitted=False)
+	if girl.datingCriteria == 1:
+		boyList.order_by('attractiveness')
+	if girl.datingCriteria == 2:
+		boyList.order_by('budget')
+	if girl.datingCriteria == 3:
+		boyList.order_by('intelligence')
+	for boy in boyList:
+		if boy.isCommitted:
+			continue
+		if boy.budget >= girl.maintenanceBudget and girl.attractiveness >= boy.attractionRequirement:
+			boy.commit()
+			girl.commit()
+			return Relation.objects.create(boy=boy, girl=girl, commitOn=datetime.now())
+	return None
+
+def breakupAll():
+	for relation in Relation.objects.all():
+		relation.breakup()

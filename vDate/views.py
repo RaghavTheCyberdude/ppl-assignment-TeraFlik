@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import *
-from vDate.newrandom import *
+from vDate.new import *
 # Create your views here.
 
 def home(request):
@@ -47,54 +47,68 @@ def girls(request):
 
 
 def gifts(request):
+	handled = False
+	giftNumForm = GetGiftNumberForm(prefix='auto')
+	essentialGiftForm = EssentialGiftForm(prefix='essentialGift')
+	luxuryGiftForm = LuxuryGiftForm(prefix='luxuryGift')
+	utilityGiftForm = UtilityGiftForm(prefix='utilityGift')
 	if request.method == 'POST':
-		giftNumForm = GetGiftNumberForm(request.POST)
-		if numForm.is_valid():
-			giftType = numForm.cleaned_data['giftType']
-			number = numForm.cleaned_data['number']
+		giftNumForm = GetGiftNumberForm(request.POST, prefix='auto')
+		if giftNumForm.is_valid():
+			handled = True
+			giftType = giftNumForm.cleaned_data['giftType']
+			number = giftNumForm.cleaned_data['number']
 			for i in range(number):
-				if giftType == 1:
+				if giftType == '1':
 					newEssentialGift()
-				elif giftType == 2:
+				elif giftType == '2':
 					newLuxuryGift()
-				else:
+				elif giftType == '3':
 					newUtilityGift()
-	else:
-		giftNumForm = GetGiftNumberForm(request.POST)
-	essentialGiftslist = EssentialGift.objects.all()
-	luxuryGiftslist = LuxuryGift.objects.all()
-	utilityGiftslist = UtilityGift.objects.all()
+		if not handled:
+			essentialGiftForm = EssentialGiftForm(request.POST, prefix='essentialGift')
+			if essentialGiftForm.is_valid():
+				handled = True
+				essentialGiftForm.save()
+		if not handled:
+			luxuryGiftForm = LuxuryGiftForm(request.POST, prefix='luxuryGift')
+			if luxuryGiftForm.is_valid():
+				handled = True
+				luxuryGiftForm.save()
+		if not handled:	
+			utilityGiftForm = UtilityGiftForm(request.POST, prefix='utilityGift')
+			if utilityGiftForm.is_valid():
+				utilityGiftForm.save()
+				handled = True
+	essentialGiftsList = EssentialGift.objects.all()
+	luxuryGiftsList = LuxuryGift.objects.all()
+	utilityGiftsList = UtilityGift.objects.all()
 	return render(request, 'vDate/gifts.html',{
-		'essentialGiftslist': essentialGiftslist,
-		'luxuryGiftslist': luxuryGiftslist,
-		'utilityGiftslist': utilityGiftslist,
+		'essentialGiftsList': essentialGiftsList,
+		'luxuryGiftsList': luxuryGiftsList,
+		'utilityGiftsList': utilityGiftsList,
+		'essentialGiftForm': essentialGiftForm,
+		'luxuryGiftForm': luxuryGiftForm,
+		'utilityGiftForm': utilityGiftForm,
 		'giftNumberForm': giftNumForm
 		})
 
-def newGift(request):
-	handled = False
+def relations(request):
+	#breakupAll()
+	numForm = GetNumberForm()
 	if request.method == 'POST':
-		essentialGiftForm = EssentialGiftForm(request.POST, prefix='essentialGift')
-		if essentialGiftForm.is_valid():
-			essentialGiftForm.save()
-			handled = True
-			return HttpResponseRedirect('vDate/gifts.html')
-		luxuryGiftForm = LuxuryGiftForm(request.POST, prefix='luxuryGift')
-		if not handled and luxuryGiftForm.is_valid():
-			luxuryGiftForm.save()
-			handled = True
-			return HttpResponseRedirect('vDate/gifts.html')
-		utilityGiftForm = UtilityGiftForm(request.POST, prefix='utilityGift')
-		if not handled and utilityGiftForm.is_valid():
-			utilityGiftForm.save()
-			handled = True
-			return HttpResponseRedirect('vDate/gifts.html')
-	else:
-		essentialGiftForm = EssentialGiftForm(prefix='essentialGift')
-		luxuryGiftForm = LuxuryGiftForm(prefix='luxuryGift')
-		utilityGiftForm = UtilityGiftForm(prefix='utilityGift')
-	return render(request, 'vDate/gifts-new.html', {'essentialGiftForm': essentialGiftForm, 'luxuryGiftForm': luxuryGiftForm, 'utilityGiftForm': utilityGiftForm})
+		numForm = GetNumberForm(request.POST)
+		if numForm.is_valid():
+			number = numForm.cleaned_data['number']
+			girlCount = Girl.objects.filter(isCommitted=False).count()
+			if number > girlCount:
+				raise Exception("Not enough girls!")
+			girlList = Girl.objects.filter(isCommitted=False)[:number]	
+			for girl in girlList:
+				findMatch(girl)
 
-def relationships(request):
 	relationsList = Relation.objects.all()
-	return render(request, 'vDate/relationships.html', {'relationsList': relationsList})
+	return render(request, 'vDate/relations.html', {
+		'relationsList': relationsList,
+		'getNumberForm': numForm,
+		})

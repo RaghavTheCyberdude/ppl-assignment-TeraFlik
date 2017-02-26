@@ -6,5 +6,5 @@ urlpatterns = [
 	url(r'^boys/$', views.boys, name='boys'),
 	url(r'^girls/$', views.girls, name='girls'),
 	url(r'^gifts/$', views.gifts, name='gifts'),
-	url(r'^gifts-new/$', views.newGift, name='gifts-new'),
+	url(r'^relations/$', views.relations, name='relations'),
 ]

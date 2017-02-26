@@ -1,28 +1,62 @@
 {% extends 'vDate/base.html' %}
-
+{% load humanize %}
 {% block content %}
-<header>
-	<h2>Girls</h2>
-</header>
-<section>
-	<form method="POST">{% csrf_token %}
-		{{ girlForm.as_p }}
-		<button type="submit" class="save btn btn-default">Save</button>
-	</form>
+<section class="row">
+	<div class="col-sm-6">
+		<h1>Girls <span class="badge">{{ girlsList.count }}</span></h1>
+	</div>
+	<div class="col-sm-6">	
+		<form class="form-inline" method="POST">{% csrf_token %}
+			{{ form.number.errors }}
+			<div class="input-group">
+				<input type="number" class="form-control" id="id_auto-number" max="200" name="auto-number" placeholder="Number" required>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary">Generate Random Entries</button>
+				</span>
+			</div>
+		</form>
+	</div>
 </section>
 
 <section>
-	<form method="POST">{% csrf_token %}
-		{{ getNumberForm.as_p }}
-		<button type="submit" class="save btn btn-default">Save</button>
-	</form>
-</section>
-
-<section>
-	<ul>
-	{% for girl in girlsList %}
-		<li>{{ girl }}</li>
-	{% endfor %}
-	</ul>
+	<div class="table-responsive">
+		<form method="POST">{% csrf_token %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Attractiveness</th>
+					<th>Intelligence</th>
+					<th>Committed</th>
+					<th>Maintenance Budget</th>
+					<th>Dating Criteria</th>
+					<th>Type</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for girl in girlsList %}
+			<tr>
+				<td>{{ girl.name }}</td>
+				<td>{{ girl.attractiveness|floatformat:"-2" }}</td>
+				<td>{{ girl.intelligenceLevel|floatformat:"-2" }}</td>
+				<td>{{ girl.isCommitted }}</td>
+				<td>{{ girl.maintenanceBudget|intcomma }}</td>
+				<td>{{ girl.get_datingCriteria_display }}</td>
+				<td>{{ girl.get_girlType_display }}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				{% for field in girlForm %}
+				<td>
+					{{ field }}
+					{{ field.errors }}
+				</td>
+				{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 </section>
 {% endblock %}

@@ -11,15 +11,26 @@ class GetGiftNumberForm(forms.Form):
 
 class BoyForm(forms.ModelForm):
 	boyType = forms.ChoiceField(choices=committedBoyTypes, required=True)
+
 	class Meta:
 		model = Boy
-		fields = ('name', 'attractiveness', 'intelligenceLevel', 'budget', 'attractionRequirement', 'boyType')
+		fields = ('name', 'attractiveness', 'intelligenceLevel', 'isCommitted', 'budget', 'attractionRequirement', 'boyType')
+		help_texts = {
+			'attractiveness': 'Between 1 to 10',
+			'intelligenceLevel': 'Between 1 to 10',
+			'attractionRequirement': 'Between 1 to 10',
+		}
 
 class GirlForm(forms.ModelForm):
 	girlType = forms.ChoiceField(choices=committedGirlTypes, required=True)
+
 	class Meta:
 		model = Girl
-		fields = ('name', 'attractiveness', 'intelligenceLevel', 'maintenanceBudget', 'datingCriteria', 'girlType')
+		fields = ('name', 'attractiveness', 'intelligenceLevel', 'isCommitted', 'maintenanceBudget', 'datingCriteria', 'girlType')
+		help_texts = {
+			'attractiveness': 'Between 1 to 10',
+			'intelligenceLevel': 'Between 1 to 10',
+		}
 
 class EssentialGiftForm(forms.ModelForm):
 	class Meta:
@@ -33,6 +44,7 @@ class LuxuryGiftForm(forms.ModelForm):
 
 class UtilityGiftForm(forms.ModelForm):
 	utilityClass = forms.ChoiceField(choices=utilityClasses, required=True)
+	
 	class Meta:
 		model = UtilityGift
 		fields = ('price', 'value', 'utilityValue', 'utilityClass')

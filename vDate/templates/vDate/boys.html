@@ -1,28 +1,62 @@
 {% extends 'vDate/base.html' %}
-
+{% load humanize %}
 {% block content %}
-<header>
-	<h2>Boys</h2>
-</header>
-<section>
-	<form method="POST">{% csrf_token %}
-		{{ boyForm.as_p }}
-		<button type="submit" class="save btn btn-default">Save</button>
-	</form>
+<section class="row">
+	<div class="col-sm-6">
+		<h1>Boys <span class="badge">{{ boysList.count }}</span></h1>
+	</div>
+	<div class="col-sm-6">	
+		<form class="form-inline" method="POST">{% csrf_token %}
+			{{ form.number.errors }}
+			<div class="input-group">
+				<input type="number" class="form-control" id="id_auto-number" max="200" name="auto-number" placeholder="Number" required>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary">Generate Random Entries</button>
+				</span>
+			</div>
+		</form>
+	</div>
 </section>
 
 <section>
-	<form method="POST">{% csrf_token %}
-		{{ getNumberForm.as_p }}
-		<button type="submit" class="save btn btn-default">Save</button>
-	</form>
-</section>
-
-<section>
-	<ul>
-	{% for boy in boysList %}
-		<li>{{ boy }}</li>
-	{% endfor %}
-	</ul>
+	<div class="table-responsive">
+		<form method="POST">{% csrf_token %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Attractiveness</th>
+					<th>Intelligence</th>
+					<th>Committed</th>
+					<th>Maintenance Budget</th>
+					<th>Attraction Requirement</th>
+					<th>Type</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for boy in boysList %}
+			<tr>
+				<td>{{ boy.name }}</td>
+				<td>{{ boy.attractiveness|floatformat:"-2" }}</td>
+				<td>{{ boy.intelligenceLevel|floatformat:"-2" }}</td>
+				<td>{{ boy.isCommitted }}</td>
+				<td>{{ boy.budget|intcomma }}</td>
+				<td>{{ boy.attractionRequirement|floatformat:"-2"	 }}</td>
+				<td>{{ boy.get_boyType_display }}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				{% for field in boyForm %}
+				<td>
+					{{ field }}
+					{{ field.errors }}
+				</td>
+				{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 </section>
 {% endblock %}
