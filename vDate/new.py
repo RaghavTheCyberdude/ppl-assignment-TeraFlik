@@ -85,7 +85,10 @@ def findMatch(girl):
 		if boy.budget >= girl.maintenanceBudget and girl.attractiveness >= boy.attractionRequirement:
 			boy.commit()
 			girl.commit()
-			return Relation.objects.create(boy=boy, girl=girl, commitOn=datetime.now())
+			newRelation = Relation(boy=boy, girl=girl, commitOn=datetime.now())
+			newRelation.findCompatibility()
+			newRelation.save(force_insert=True)
+			return newRelation
 	return None
 
 def breakupAll():

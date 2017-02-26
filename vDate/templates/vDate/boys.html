@@ -1,13 +1,12 @@
 {% extends 'vDate/base.html' %}
 {% load humanize %}
 {% block content %}
-<section class="row">
+<section class="row header-row">
 	<div class="col-sm-6">
 		<h1>Boys <span class="badge">{{ boysList.count }}</span></h1>
 	</div>
 	<div class="col-sm-6">	
 		<form class="form-inline" method="POST">{% csrf_token %}
-			{{ form.number.errors }}
 			<div class="input-group">
 				<input type="number" class="form-control" id="id_auto-number" max="200" name="auto-number" placeholder="Number" required>
 				<span class="input-group-btn">
@@ -15,6 +14,7 @@
 				</span>
 			</div>
 		</form>
+		{{ form.number.errors }}
 	</div>
 </section>
 
@@ -28,7 +28,7 @@
 					<th>Attractiveness</th>
 					<th>Intelligence</th>
 					<th>Committed</th>
-					<th>Maintenance Budget</th>
+					<th>Budget</th>
 					<th>Attraction Requirement</th>
 					<th>Type</th>
 				</tr>
@@ -40,7 +40,7 @@
 				<td>{{ boy.attractiveness|floatformat:"-2" }}</td>
 				<td>{{ boy.intelligenceLevel|floatformat:"-2" }}</td>
 				<td>{{ boy.isCommitted }}</td>
-				<td>{{ boy.budget|intcomma }}</td>
+				<td>&#8377; {{ boy.budget|intcomma }}</td>
 				<td>{{ boy.attractionRequirement|floatformat:"-2"	 }}</td>
 				<td>{{ boy.get_boyType_display }}</td>
 			</tr>
@@ -55,8 +55,14 @@
 			</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<button type="submit" class="new btn btn-default">New Custom Entry</button>
 		</form>
 	</div>
+	
 </section>
+<div class="delete-all">
+	<form action="{% url 'delete' %}" method="POST">{% csrf_token %}
+		<button type="submit" name="type" value="boys" class="btn btn-danger">Delete All</button>
+	</form>
+</div>
 {% endblock %}

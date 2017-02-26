@@ -1,13 +1,13 @@
 {% extends 'vDate/base.html' %}
 {% load humanize %}
 {% block content %}
-<section class="row">
+<section class="row header-row">
 	<div class="col-sm-6">
 		<h1>Relations <span class="badge">{{ relationsList.count }}</span></h1>
 	</div>
 	<div class="col-sm-6">	
 		<form class="form-inline" method="POST">{% csrf_token %}
-			{{ getNumberForm.errors }}
+			
 			<div class="input-group">
 				<input type="number" class="form-control" id="id_number" max="200" name="number" placeholder="Number" required>
 				<span class="input-group-btn">
@@ -15,30 +15,42 @@
 				</span>
 			</div>
 		</form>
+		{{ getNumberForm.errors }}
+		{% if messages %}
+			{% for message in messages %}
+			{{ message }}
+			{% endfor %}
+		{% endif %}
 	</div>
 </section>
 
 <section>
 	<div class="table-responsive">
-		<form method="POST">{% csrf_token %}
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Boy</th>
 					<th>Girl</th>
+					<th>Boy</th>
 					<th>Committed On</th>
+					<th>Compatibility</th>
 				</tr>
 			</thead>
 			<tbody>
 			{% for relation in relationsList %}
 			<tr>
-				<td>{{ relation.boy.name }}</td>
 				<td>{{ relation.girl.name }}</td>
+				<td>{{ relation.boy.name }}</td>
 				<td>{{ relation.commitOn }}</td>
+				<td>{{ relation.compatibility|floatformat:"-2" }}</td>
 			</tr>
 			{% endfor %}
 			</tbody>
 		</table>
 	</div>
 </section>
+<div class="delete-all">
+	<form action="{% url 'delete' %}" method="POST">{% csrf_token %}
+		<button type="submit" name="type" value="relations" class="btn btn-danger">Delete All</button>
+	</form>
+</div>
 {% endblock %}

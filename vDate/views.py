@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.contrib import messages
 from .models import *
 from .forms import *
 from vDate.new import *
@@ -80,9 +82,9 @@ def gifts(request):
 			if utilityGiftForm.is_valid():
 				utilityGiftForm.save()
 				handled = True
-	essentialGiftsList = EssentialGift.objects.all()
-	luxuryGiftsList = LuxuryGift.objects.all()
-	utilityGiftsList = UtilityGift.objects.all()
+	essentialGiftsList = EssentialGift.objects.all().order_by('price')
+	luxuryGiftsList = LuxuryGift.objects.all().order_by('price')
+	utilityGiftsList = UtilityGift.objects.all().order_by('price')
 	return render(request, 'vDate/gifts.html',{
 		'essentialGiftsList': essentialGiftsList,
 		'luxuryGiftsList': luxuryGiftsList,
@@ -102,13 +104,34 @@ def relations(request):
 			number = numForm.cleaned_data['number']
 			girlCount = Girl.objects.filter(isCommitted=False).count()
 			if number > girlCount:
-				raise Exception("Not enough girls!")
-			girlList = Girl.objects.filter(isCommitted=False)[:number]	
-			for girl in girlList:
-				findMatch(girl)
-
+				messages.error(request, "Not enough single girls!")
+			else:
+				girlList = Girl.objects.filter(isCommitted=False)[:number]	
+				for girl in girlList:
+					findMatch(girl)
+	else:
+		numForm = GetNumberForm()
 	relationsList = Relation.objects.all()
 	return render(request, 'vDate/relations.html', {
 		'relationsList': relationsList,
 		'getNumberForm': numForm,
 		})
+
+def deleteEntries(request):
+	if request.method == 'POST':
+		if request.POST.get('type') == 'boys':
+			Boy.objects.all().delete()
+			return HttpResponseRedirect(reverse('boys'))
+		elif request.POST.get('type') == 'girls':
+			Girl.objects.all().delete()
+			return HttpResponseRedirect(reverse('girls'))
+		elif request.POST.get('type') == 'gifts':
+			EssentialGift.objects.all().delete()
+			LuxuryGift.objects.all().delete()
+			UtilityGift.objects.all().delete()
+			return HttpResponseRedirect(reverse('gifts'))
+		elif request.POST.get('type') == 'relations':
+			for relation in Relation.objects.all():
+				relation.breakup()
+			return HttpResponseRedirect(reverse('relations'))
+	return HttpResponseRedirect(reverse('home'))

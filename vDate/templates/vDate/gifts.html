@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block content %}
 
-<section class="row">
+<section class="row header-row">
 	<div class="col-sm-6">
 		<h1>Gifts <span class="badge">{{ essentialGiftsList.count|add:luxuryGiftsList.count|add:utilityGiftsList.count }}</span></h1>
 	</div>
@@ -22,6 +22,7 @@
 				</span>
 			</div>
 		</form>
+		{{ giftNumberForm.errors }}
 	</div>
 </section>
 
@@ -39,8 +40,8 @@
 			<tbody>
 			{% for gift in essentialGiftsList %}
 			<tr>
-				<td>{{ gift.price|intcomma }}</td>
-				<td>{{ gift.value|floatformat:"-2" }}</td>
+				<td>&#8377; {{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-1" }}</td>
 			</tr>
 			{% endfor %}
 			<tr>
@@ -53,7 +54,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<button type="submit" class="new btn btn-default">New Custom Entry</button>
 		</form>
 	</div>
 </section>
@@ -73,10 +74,10 @@
 			<tbody>
 			{% for gift in luxuryGiftsList %}
 			<tr>
-				<td>{{ gift.price|intcomma }}</td>
-				<td>{{ gift.value|floatformat:"-2" }}</td>
-				<td>{{ gift.luxuryRating|floatformat:"-2" }}</td>
-				<td>{{ gift.difficultyToObtain|floatformat:"-2" }}</td>
+				<td>&#8377; {{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-1" }}</td>
+				<td>{{ gift.luxuryRating|floatformat:"0" }}</td>
+				<td>{{ gift.difficultyToObtain|floatformat:"-1" }}</td>
 			</tr>
 			{% endfor %}
 			<tr>
@@ -89,7 +90,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<button type="submit" class="new btn btn-default">New Custom Entry</button>
 		</form>
 	</div>
 </section>
@@ -109,9 +110,9 @@
 			<tbody>
 			{% for gift in utilityGiftsList %}
 			<tr>
-				<td>{{ gift.price|intcomma }}</td>
-				<td>{{ gift.value|floatformat:"-2" }}</td>
-				<td>{{ gift.utilityValue|floatformat:"-2" }}</td>
+				<td>&#8377; {{ gift.price|intcomma }}</td>
+				<td>{{ gift.value|floatformat:"-1" }}</td>
+				<td>{{ gift.utilityValue|floatformat:"0" }}</td>
 				<td>{{ gift.get_utilityClass_display}}</td>
 			</tr>
 			{% endfor %}
@@ -125,8 +126,13 @@
 			</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<button type="submit" class="new btn btn-default">New Custom Entry</button>
 		</form>
 	</div>
 </section>
+<div class="delete-all">
+	<form action="{% url 'delete' %}" method="POST">{% csrf_token %}
+		<button type="submit" name="type" value="gifts" class="btn btn-danger">Delete All</button>
+	</form>
+</div>
 {% endblock %}

@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from datetime import datetime
 from .choices import *
+from decimal import *
 # Create your models here.
 
 class Girl(models.Model):
@@ -82,6 +83,7 @@ class Relation(models.Model):
 	girl = models.ForeignKey(Girl, on_delete=models.CASCADE)
 	commitOn = models.DateTimeField(default=timezone.now)
 	breakupOn = models.DateTimeField(blank=True, null=True)
+	compatibility = models.FloatField(default=0)
 
 	def __str__(self):
 		if self.breakupOn is None:
@@ -93,6 +95,10 @@ class Relation(models.Model):
 		self.girl.leave()
 		self.boy.leave()
 		self.delete()
+
+	def findCompatibility(self):
+		self.compatibility = (self.boy.budget - self.girl.maintenanceBudget) + Decimal(abs(self.boy.attractiveness - self.boy.attractiveness)) + Decimal(abs(self.boy.intelligenceLevel - self.girl.intelligenceLevel))
+		return self.compatibility
 
 class Exchange(models.Model):
 	relation = models.ForeignKey('vDate.Relation', related_name='exchanges')
