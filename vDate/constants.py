@@ -1,3 +1,8 @@
+"""
+This file contains the list of all the choices and constants used all over the program.
+To include simply use: from .constants import *
+"""
+
 datingCriteriaChoices = (
 	(1, "Most Attractive"),
 	(2, "Most Rich"),

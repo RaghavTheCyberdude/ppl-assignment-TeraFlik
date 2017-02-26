@@ -5,7 +5,10 @@ from django.contrib import messages
 from .models import *
 from .forms import *
 from vDate.new import *
-# Create your views here.
+
+"""
+These views serve all the data to the front-end templates.
+"""
 
 def home(request):
 	exchangesList = Exchange.objects.all()
@@ -14,6 +17,11 @@ def home(request):
 	return render(request, 'vDate/Q2.html', {'happyCouples': happyCouples, 'compatibleCouples': compatibleCouples})
 
 def boys(request):
+	"""
+	Prints list of all boys.
+	Using POST form recieves the number of random entries to generate for the boy class.
+	Can create a custom Boy using another POST form.
+	"""
 	manual = False	
 	boyForm = BoyForm(prefix='manual')
 	if request.method == 'POST':
@@ -33,6 +41,11 @@ def boys(request):
 	return render(request, 'vDate/boys.html', {'boysList': boysList, 'boyForm': boyForm, 'getNumberForm': numForm})
 
 def girls(request):
+	"""
+	Prints list of all girls.
+	Using POST form recieves the number of random entries to generate for the girl class.
+	Can create a custom Girl using another POST form.
+	"""
 	manual = False	
 	girlForm = GirlForm(prefix='manual')
 	if request.method == 'POST':
@@ -52,6 +65,11 @@ def girls(request):
 
 
 def gifts(request):
+	"""
+	Prints list of all Gifts- Essential, Luxury and Utility Gifts.
+	Using POST form recieves the number of random entries to generate for the a particular gift class.
+	Can create a custom Gifts of required type using 3 other POST forms.
+	"""
 	handled = False
 	giftNumForm = GetGiftNumberForm(prefix='auto')
 	essentialGiftForm = EssentialGiftForm(prefix='essentialGift')
@@ -104,7 +122,10 @@ def gifts(request):
 		})
 
 def relations(request):
-	#breakupAll()
+	"""
+	Prints list of all the relations currently existing.
+	Using POST form recieves the number of random relations to create subject to availability of suitable matches.
+	"""
 	relationsList = Relation.objects.all()
 	exchangesList = Exchange.objects.all()
 	handled = False
@@ -143,6 +164,9 @@ def relations(request):
 		})
 
 def deleteEntries(request):
+	"""
+	Purpose of this View is to serve the "Delete all" button at the end of all pages to get rid of the records and insert new records to database.
+	"""
 	if request.method == 'POST':
 		if request.POST.get('type') == 'boys':
 			Boy.objects.all().delete()

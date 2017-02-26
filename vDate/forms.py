@@ -2,6 +2,9 @@ from django import forms
 from .models import *
 from .constants import *
 
+"""
+All the forms used by the HTML Templates and Django Views are declared here.
+"""
 class GetNumberForm(forms.Form):
 	number = forms.IntegerField(max_value=200)
 

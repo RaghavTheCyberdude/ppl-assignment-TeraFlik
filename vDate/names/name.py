@@ -1,7 +1,24 @@
 from __future__ import unicode_literals
 from os.path import abspath, join, dirname
 import random
+"""
+Created on 25 February 2017
+.. module:: name
+	:platform: Unix, Windows
+	:synopsis: Random Name Generator
+.. projectauthor:: Raghav Khandelwal <LIT2015002>
 
+Module used to generate random number from a list of available first and last names of both gender, Male and Female and return the generated name to the calling function.
+
+:Dependencies: 'last.txt', 'male.txt', 'female.txt'
+
+:Example: 
+
+>>>from name import get_full_name
+>>>get_full_name('female')
+Alexia Carter
+
+"""
 full_path = lambda filename: abspath(join(dirname(__file__), filename))
 
 FILES = {

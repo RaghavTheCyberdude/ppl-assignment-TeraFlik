@@ -2,8 +2,16 @@ from .models import *
 import random
 from datetime import datetime
 from vDate.names.name import get_full_name
-
+"""
+This module contains all the utility functions called by our project.
+Generates random objects of all the classes as required by the specifications.
+:Author: Raghav Khandelwal
+:RollNo: LIT2015002
+"""
 def newRandomBoy():
+	"""
+	Generates a new Boy with random attributes
+	"""
 	name = get_full_name('male')
 	attractiveness = random.triangular(attractionMin, attractionMax, attractionMode)
 	intelligenceLevel = random.triangular(intelligenceMin, intelligenceMax, intelligenceMode)
@@ -11,9 +19,11 @@ def newRandomBoy():
 	attractionRequirement = random.triangular(attractionMin, attractionMax, attractionMode)
 	boyType = random.randint(1,3)
 	boy = Boy.objects.create(name=name, attractiveness=attractiveness, intelligenceLevel=intelligenceLevel, budget=budget, attractionRequirement=attractionRequirement, boyType=boyType)
-	return boy
 
 def newRandomGirl():
+	"""
+	Generates a new Girl with random attributesl
+	"""
 	name = get_full_name('female')
 	attractiveness = random.triangular(attractionMin, attractionMax, attractionMode)
 	intelligenceLevel = random.triangular(intelligenceMin, intelligenceMax, intelligenceMode)
@@ -23,11 +33,17 @@ def newRandomGirl():
 	Girl.objects.create(name=name, attractiveness=attractiveness, intelligenceLevel=intelligenceLevel, maintenanceBudget=maintenanceBudget, datingCriteria=datingCriteria, girlType=girlType)
 
 def newEssentialGift():
+	"""
+	Generates a new Essential Gift with random attributes
+	"""
 	price =  random.triangular(giftMin, giftMax, giftMode)
 	value = price
 	EssentialGift.objects.create(price=price, value=value)
 
 def newLuxuryGift():
+	"""
+	Generates a new Luxury Gift with random attributes
+	"""
 	price =  random.triangular(luxuryGiftMin, luxuryGiftMax, luxuryGiftMode)
 	rating = random.triangular(ratingMin, ratingMax, ratingMode)
 	difficultyToObtain = random.triangular(ratingMin, ratingMax, ratingMode)
@@ -35,6 +51,9 @@ def newLuxuryGift():
 	LuxuryGift.objects.create(price=price, value=value, luxuryRating=rating, difficultyToObtain=difficultyToObtain)
 
 def newUtilityGift():
+	"""
+	Generates a new Utility Gift with random attributes
+	"""
 	price =  random.triangular(giftMin, giftMax, giftMode)
 	utilityValue = random.triangular(ratingMin, ratingMax/2, ratingMode/2)
 	utilityClass = random.randint(1,5)
@@ -42,6 +61,13 @@ def newUtilityGift():
 	UtilityGift.objects.create(price=price, value=value, utilityValue=utilityValue, utilityClass=utilityClass)
 
 def findMatch(girl):
+	"""
+	Function finds an appropriate match for girl, after checking eligibility criterias and girls choice of boys.
+	It then creates a new relationship if an appropriate match is found.
+
+	:param girl: Object of type Girl whose match is to be found
+	:returns: New Relation object if match is found, otherwise None
+	"""
 	if girl.isCommitted:
 		return None
 	boyList = Boy.objects.filter(isCommitted=False)
@@ -64,10 +90,19 @@ def findMatch(girl):
 	return None
 
 def breakupAll():
+	"""
+	Utility function used to breakup all the relationships.
+	"""
 	for relation in Relation.objects.all():
 		relation.breakup()
 
 def performGifting(relation):
+	"""
+	Main objective of this function is to perform the gifting between a couple.
+	Depending on the type of boy, it performs greedy search to find the best possible and fitting gift, and creates a new instance of exchange to model the gifting that took place. TimeStamp is incorporated for debugging purposes.
+
+	:param relation: Relation for which gifting is to be done. 
+	"""
 	essential = EssentialGift.objects.all().order_by('price')
 	luxury = LuxuryGift.objects.all().order_by('price')
 	utility = UtilityGift.objects.all().order_by('price')
