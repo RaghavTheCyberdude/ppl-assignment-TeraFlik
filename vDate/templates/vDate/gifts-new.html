@@ -1,0 +1,31 @@
+{% extends 'vDate/base.html' %}
+
+{% block content %}
+<header>
+	<h2>New Gifts</h2>
+</header>
+<section>
+	<h3>Essential</h3>
+	<form method="POST">{% csrf_token %}
+		{{ essentialGiftForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<h3>Luxury</h3>
+	<form method="POST">{% csrf_token %}
+		{{ luxuryGiftForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<h3>Utility</h3>
+	<form method="POST">{% csrf_token %}
+		{{ utilityGiftForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+{% endblock %}

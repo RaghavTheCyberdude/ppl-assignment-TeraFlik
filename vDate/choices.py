@@ -16,6 +16,12 @@ committedBoyTypes = (
 	(3, "The Geek")
 )
 
+giftTypes = (
+	(1, "Essential Gift"),
+	(2, "Luxury Gift"),
+	(3, "Utility Gift")
+)
+
 utilityClasses = (
 	(1, "Health"),
 	(2, "Home"),

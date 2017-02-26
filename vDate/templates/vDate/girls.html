@@ -1,0 +1,28 @@
+{% extends 'vDate/base.html' %}
+
+{% block content %}
+<header>
+	<h2>Girls</h2>
+</header>
+<section>
+	<form method="POST">{% csrf_token %}
+		{{ girlForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<form method="POST">{% csrf_token %}
+		{{ getNumberForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<ul>
+	{% for girl in girlsList %}
+		<li>{{ girl }}</li>
+	{% endfor %}
+	</ul>
+</section>
+{% endblock %}

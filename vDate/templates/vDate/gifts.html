@@ -1,0 +1,31 @@
+{% extends 'vDate/base.html' %}
+
+{% block content %}
+<header>
+	<h2>Girls</h2>
+</header>
+<section>
+	<h3>Essential</h3>
+	<ul>
+	{% for gift in essentialGiftslist %}
+		<li>{{ gift }}</li>
+	{% endfor %}
+	</ul>
+</section>
+<section>
+	<h3>Luxury</h3>
+	<ul>
+	{% for gift in luxuryGiftslist %}
+		<li>{{ gift }}</li>
+	{% endfor %}
+	</ul>
+</section>
+<section>
+	<h3>Utility</h3>
+	<ul>
+	{% for gift in utilityGiftslist %}
+		<li>{{ gift }}</li>
+	{% endfor %}
+	</ul>
+</section>
+{% endblock %}

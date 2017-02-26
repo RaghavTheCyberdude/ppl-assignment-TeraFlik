@@ -2,33 +2,42 @@ from django import forms
 from .models import *
 from .choices import *
 
+class GetNumberForm(forms.Form):
+	number = forms.IntegerField(max_value=200)
+
+class GetGiftNumberForm(forms.Form):
+	giftType = forms.ChoiceField(choices=giftTypes, required=True)
+	number = forms.IntegerField(max_value=200)
+
 class BoyForm(forms.ModelForm):
+	boyType = forms.ChoiceField(choices=committedBoyTypes, required=True)
 	class Meta:
 		model = Boy
 		fields = ('name', 'attractiveness', 'intelligenceLevel', 'budget', 'attractionRequirement', 'boyType')
-		widgets = {
-			'boyType': forms.ChoiceField(choices=committedBoyTypes, widget=forms.RadioSelect, required=True),
-			}
 
 class GirlForm(forms.ModelForm):
+	girlType = forms.ChoiceField(choices=committedGirlTypes, required=True)
 	class Meta:
 		model = Girl
 		fields = ('name', 'attractiveness', 'intelligenceLevel', 'maintenanceBudget', 'datingCriteria', 'girlType')
-		widgets = {
-			'girlType': forms.ChoiceField(choices=committedGirlTypes, widget=forms.RadioSelect, required=True),
-			}
 
 class EssentialGiftForm(forms.ModelForm):
 	class Meta:
-		model = Gift
+		model = EssentialGift
 		fields = ('price', 'value')
 
 class LuxuryGiftForm(forms.ModelForm):
 	class Meta:
-		model = Gift
+		model = LuxuryGift
 		fields = ('price', 'value', 'luxuryRating', 'difficultyToObtain')
 
 class UtilityGiftForm(forms.ModelForm):
+	utilityClass = forms.ChoiceField(choices=utilityClasses, required=True)
 	class Meta:
-		model = Gift
+		model = UtilityGift
 		fields = ('price', 'value', 'utilityValue', 'utilityClass')
+
+class RelationForm(forms.ModelForm):
+	class Meta:
+		model = Relation
+		fields = ('boy', 'girl', 'commitOn', 'breakupOn')

@@ -1,0 +1,28 @@
+{% extends 'vDate/base.html' %}
+
+{% block content %}
+<header>
+	<h2>Boys</h2>
+</header>
+<section>
+	<form method="POST">{% csrf_token %}
+		{{ boyForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<form method="POST">{% csrf_token %}
+		{{ getNumberForm.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+</section>
+
+<section>
+	<ul>
+	{% for boy in boysList %}
+		<li>{{ boy }}</li>
+	{% endfor %}
+	</ul>
+</section>
+{% endblock %}
