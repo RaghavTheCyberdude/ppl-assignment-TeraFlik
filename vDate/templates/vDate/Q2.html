@@ -1,0 +1,48 @@
+{% extends 'vDate/base.html' %}
+
+{% block content %}
+<section class="row header-row">
+	<h1>Question 2</h1>
+</section>
+<div class="row">
+<section class="col-sm-6">
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Happiest Couples</th>
+					<th>Happiness</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for couple in happyCouples %}
+			<tr>
+				<td>{{ couple }}</td>
+				<td>{{ couple.happiness|floatformat:"-2" }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
+<section class="col-sm-6">
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Compatible Couples</th>
+					<th>Compatibility</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for couple in compatibleCouples %}
+			<tr>
+				<td>{{ couple }}</td>
+				<td>{{ couple.compatibility|floatformat:"-2" }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
+{% endblock %}

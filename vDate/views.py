@@ -8,7 +8,10 @@ from vDate.new import *
 # Create your views here.
 
 def home(request):
-	return render(request, 'vDate/base.html')
+	exchangesList = Exchange.objects.all()
+	happyCouples = Relation.objects.all().order_by('-happiness')
+	compatibleCouples = Relation.objects.all().order_by('-compatibility')
+	return render(request, 'vDate/Q2.html', {'happyCouples': happyCouples, 'compatibleCouples': compatibleCouples})
 
 def boys(request):
 	manual = False	
@@ -129,6 +132,7 @@ def relations(request):
 			else:
 				for relation in Relation.objects.all():
 					performGifting(relation)
+					relation.findHappiness()
 	if handled:
 		numForm = GetNumberForm()
 	return render(request, 'vDate/relations.html', {

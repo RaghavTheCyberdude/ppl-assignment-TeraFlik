@@ -3,34 +3,6 @@ import random
 from datetime import datetime
 from vDate.names.name import get_full_name
 
-attractionMin = 1
-attractionMode = 7
-attractionMax = 10
-
-intelligenceMin = 1
-intelligenceMode = 7
-intelligenceMax = 10
-
-maintenanceBudgetMin = 500
-maintenanceBudgetMode = 5000
-maintenanceBudgetMax = 50000
-
-budgetMin = 1000
-budgetMode = 5000
-budgetMax = 100000
-
-giftMin = 20
-giftMode = 200
-giftMax = 5000
-
-luxuryGiftMin = 2500
-luxuryGiftMode = 5000
-luxuryGiftMax = 50000
-
-ratingMin = 1
-ratingMax = 5
-ratingMode = 2
-
 def newRandomBoy():
 	name = get_full_name('male')
 	attractiveness = random.triangular(attractionMin, attractionMax, attractionMode)

@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from .choices import *
+from .constants import *
 
 class GetNumberForm(forms.Form):
 	number = forms.IntegerField(max_value=200)
