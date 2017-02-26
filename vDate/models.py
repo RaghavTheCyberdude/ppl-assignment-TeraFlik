@@ -1,7 +1,5 @@
 from django.db import models
 from django import forms
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from datetime import datetime
@@ -102,11 +100,21 @@ class Relation(models.Model):
 
 class Exchange(models.Model):
 	relation = models.ForeignKey('vDate.Relation', related_name='exchanges')
-	limit = models.Q(app_label='vDate', model='essentialgift') | models.Q(app_label='vDate', model='luxurygift') | models.Q(app_label='vDate', model = 'utilitygift')
-	giftType = models.ForeignKey(ContentType, on_delete=models.CASCADE, limit_choices_to=limit)
-	giftID = models.PositiveIntegerField()
-	gift = GenericForeignKey('giftType', 'giftID')
+	essentialGift = models.ForeignKey('vDate.EssentialGift', blank=True, null=True)
+	luxuryGift = models.ForeignKey('vDate.LuxuryGift', blank=True, null=True)
+	utilityGift = models.ForeignKey('vDate.UtilityGift', blank=True, null=True)
+	giftType = models.IntegerField(choices=giftTypes, default=None)
 	exchangeTime = models.DateTimeField(default = timezone.now)
 
 	def __str__(self):
-		return "%s got gift worth %.2f from %s on %s" % (self.relation.girl.name, self.gift.value, self.relation.boy.name, self.exchangeTime)
+		return "%s got gift worth %.2f from %s on %s" % (self.relation.girl.name, self.getGift().price, self.relation.boy.name, self.exchangeTime)
+
+	def getGift(self):
+		if self.giftType == 1:
+			return self.essentialGift
+		elif self.giftType == 2:
+			return self.luxuryGift
+		elif self.giftType == 3:
+			return self.utilityGift
+		else:
+			return None

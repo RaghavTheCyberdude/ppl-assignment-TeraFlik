@@ -5,13 +5,13 @@
 	<div class="col-sm-6">
 		<h1>Relations <span class="badge">{{ relationsList.count }}</span></h1>
 	</div>
-	<div class="col-sm-6">	
+	<div class="col-sm-4">	
 		<form class="form-inline" method="POST">{% csrf_token %}
 			
 			<div class="input-group">
 				<input type="number" class="form-control" id="id_number" max="200" name="number" placeholder="Number" required>
 				<span class="input-group-btn">
-					<button type="submit" class="btn btn-primary">Generate Random Entries</button>
+					<button type="submit" class="btn btn-primary">Q1. Generate Random Entries</button>
 				</span>
 			</div>
 		</form>
@@ -21,6 +21,11 @@
 			{{ message }}
 			{% endfor %}
 		{% endif %}
+	</div>
+	<div class="col-sm-2">
+		<form action="{% url 'relations' %}" method="POST">{% csrf_token %}
+			<button type="submit" name="type" value="gifting" class="btn btn-primary">Q2. Perform Gifting</button>
+		</form>
 	</div>
 </section>
 
@@ -43,6 +48,24 @@
 				<td>{{ relation.commitOn }}</td>
 				<td>{{ relation.compatibility|floatformat:"-2" }}</td>
 			</tr>
+			{% if status %}
+			<tr>
+				<td><h4>Exchanges</h4></td>
+				<td colspan="3">
+					<table class="table table-striped">
+					{% for exchange in exchangesList %}
+					{% if exchange.relation == relation %}
+					<tr>
+						<td>{{ exchange.get_giftType_display }}</td>
+						<td>&#8377; {{ exchange.getGift.price|intcomma }}</td>
+						<td>{{ exchange.exchangeTime }}</td>
+					</tr>
+					{% endif %}
+					{% endfor %}
+					</table>
+				</td>
+			</tr>
+			{% endif %}
 			{% endfor %}
 			</tbody>
 		</table>

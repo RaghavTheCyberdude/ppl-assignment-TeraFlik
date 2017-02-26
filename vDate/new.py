@@ -94,3 +94,80 @@ def findMatch(girl):
 def breakupAll():
 	for relation in Relation.objects.all():
 		relation.breakup()
+
+def performGifting(relation):
+	essential = EssentialGift.objects.all().order_by('price')
+	luxury = LuxuryGift.objects.all().order_by('price')
+	utility = UtilityGift.objects.all().order_by('price')
+	ef = essential.count()
+	lf = luxury.count()
+	uf = utility.count()
+	if relation.boy.boyType == 1:
+		total_spent = 0
+		e = 0
+		u = 0
+		l = 0
+		while total_spent <= relation.girl.maintenanceBudget and e<ef and u<uf and l<lf:
+			if essential[e].price < utility[u].price and essential[e].price < luxury[l].price and e<ef and u<uf and l<lf:
+				total_spent += essential[e].price
+				Exchange.objects.create(relation=relation, giftType=1, essentialGift=essential[e], exchangeTime=datetime.now())
+				e = e+1
+			elif luxury[l].price < utility[u].price and luxury[l].price < essential[e].price and e<ef and u<uf and l<lf:
+				total_spent += luxury[l].price
+				Exchange.objects.create(relation=relation, giftType=2, luxuryGift=luxury[l], exchangeTime=datetime.now())
+				l = l+1
+			elif e<ef and u<uf and l<lf:
+				total_spent += utility[u].price
+				Exchange.objects.create(relation=relation, giftType=3, utilityGift=utility[u], exchangeTime=datetime.now())
+				u = u+1
+			else:
+				break
+	elif relation.boy.boyType == 2:
+		total_left = relation.boy.budget
+		e = ef-1
+		u = uf-1
+		l = lf-1
+		while total_left >= 0 and e>=0 and u>=0 and l>=0:
+			if essential[e].price > utility[u].price and essential[e].price > luxury[l].price and e>=0 and u>=0 and l>=0:
+				total_left -= essential[e].price
+				if total_left < essential[e].price:
+					break
+				Exchange.objects.create(relation=relation, giftType=1, essentialGift=essential[e], exchangeTime=datetime.now())
+				e = e-1
+			elif luxury[l].price > utility[u].price and luxury[l].price > essential[e].price  and e>=0 and u>=0 and l>=0:
+				total_left -= luxury[l].price
+				if total_left < luxury[l].price:
+					break
+				Exchange.objects.create(relation=relation, giftType=2, luxuryGift=luxury[l], exchangeTime=datetime.now())
+				l = l-1
+			elif e>=0 and u>=0 and l>=0:
+				total_left -= utility[u].price
+				if total_left < utility[u].price:
+					break
+				Exchange.objects.create(relation=relation, giftType=3, utilityGift=utility[u], exchangeTime=datetime.now())
+				u = u-1
+			else:
+				break
+
+	elif relation.boy.boyType == 3:
+		total_spent = 0
+		e = 0
+		u = 0
+		l = 0
+		while total_spent <= relation.girl.maintenanceBudget and e<ef and u<uf and l<lf:
+			if essential[e].price < utility[u].price and essential[e].price < luxury[l].price and e<ef and u<uf and l<lf:
+				total_spent += essential[e].price
+				Exchange.objects.create(relation=relation, giftType=1, essentialGift=essential[e], exchangeTime=datetime.now())
+				e = e+1
+			elif luxury[l].price < utility[u].price and luxury[l].price < essential[e].price and e<ef and u<uf and l<lf:
+				total_spent += luxury[l].price
+				Exchange.objects.create(relation=relation, giftType=2, luxuryGift=luxury[l], exchangeTime=datetime.now())
+				l = l+1
+			elif e<ef and u<uf and l<lf:
+				total_spent += utility[u].price
+				Exchange.objects.create(relation=relation, giftType=3, utilityGift=utility[u], exchangeTime=datetime.now())
+				u = u+1
+			else:
+				break
+		if luxury[0].price < relation.boy.budget - total_spent:
+			Exchange.objects.create(relation=relation, giftType=2, luxuryGift=luxury[0], exchangeTime=datetime.now())

@@ -82,6 +82,11 @@ def gifts(request):
 			if utilityGiftForm.is_valid():
 				utilityGiftForm.save()
 				handled = True
+	if handled:
+		giftNumForm = GetGiftNumberForm(prefix='auto')
+		essentialGiftForm = EssentialGiftForm(prefix='essentialGift')
+		luxuryGiftForm = LuxuryGiftForm(prefix='luxuryGift')
+		utilityGiftForm = UtilityGiftForm(prefix='utilityGift')
 	essentialGiftsList = EssentialGift.objects.all().order_by('price')
 	luxuryGiftsList = LuxuryGift.objects.all().order_by('price')
 	utilityGiftsList = UtilityGift.objects.all().order_by('price')
@@ -97,10 +102,18 @@ def gifts(request):
 
 def relations(request):
 	#breakupAll()
+	relationsList = Relation.objects.all()
+	exchangesList = Exchange.objects.all()
+	handled = False
+	if exchangesList.exists():
+		status = True
+	else:
+		status = False
 	numForm = GetNumberForm()
 	if request.method == 'POST':
 		numForm = GetNumberForm(request.POST)
 		if numForm.is_valid():
+			handled = True
 			number = numForm.cleaned_data['number']
 			girlCount = Girl.objects.filter(isCommitted=False).count()
 			if number > girlCount:
@@ -109,12 +122,20 @@ def relations(request):
 				girlList = Girl.objects.filter(isCommitted=False)[:number]	
 				for girl in girlList:
 					findMatch(girl)
-	else:
+		elif not handled and request.POST.get('type') == 'gifting':
+			handled = True
+			if status:
+				messages.error(request, "Gifting Already Performed!")
+			else:
+				for relation in Relation.objects.all():
+					performGifting(relation)
+	if handled:
 		numForm = GetNumberForm()
-	relationsList = Relation.objects.all()
 	return render(request, 'vDate/relations.html', {
 		'relationsList': relationsList,
+		'exchangesList': exchangesList,
 		'getNumberForm': numForm,
+		'status': status,
 		})
 
 def deleteEntries(request):
