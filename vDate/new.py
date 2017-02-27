@@ -83,9 +83,7 @@ def findMatch(girl):
 		if boy.budget >= girl.maintenanceBudget and girl.attractiveness >= boy.attractionRequirement:
 			boy.commit()
 			girl.commit()
-			newRelation = Relation(boy=boy, girl=girl, commitOn=datetime.now())
-			newRelation.findCompatibility()
-			newRelation.save(force_insert=True)
+			newRelation = Relation.objects.create(boy=boy, girl=girl, commitOn=datetime.now(), compatibility=0)
 			return newRelation
 	return None
 
