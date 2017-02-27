@@ -2,14 +2,24 @@
 >&copy;2015, Raghav Khandelwal, LIT2015002, [TeraFlik](http://www.teraflik.com)
 
 ##Installation
-- You must have python installed and in your system path to run webserver.  
-```
+- You must have **python3** installed and in your system path to run webserver. 
+
+###Windows
+
     pip install --upgrade pip  
-    pip install django  
+    pip install --upgrade django  
     python manage.py makemigrations vDate  
     python manage.py migrate vDate  
     python manage.py runserver  
-```   
+    
+###Linux (Ubuntu)
+
+    sudo apt-get install python3-pip  
+    pip3 install --upgrade django
+    python3 manage.py makemigrations vDate  
+    python3 manage.py migrate vDate  
+    python3 manage.py runserver  
+    
 - Then open your browser and go to http://127.0.0.1:8000/  
 - Make sure to add the address to list of proxy exceptions.
 
