@@ -84,6 +84,7 @@ def findMatch(girl):
 			boy.commit()
 			girl.commit()
 			newRelation = Relation.objects.create(boy=boy, girl=girl, commitOn=datetime.now(), compatibility=0)
+			newRelation.findCompatibility()
 			return newRelation
 	return None
 

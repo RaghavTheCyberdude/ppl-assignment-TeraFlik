@@ -12,8 +12,6 @@ These views serve all the data to the front-end templates.
 
 def home(request):
 	exchangesList = Exchange.objects.all()
-	for relation in Relation.objects.all():
-		relation.findCompatibility()
 	happyCouples = Relation.objects.all().order_by('-happiness')
 	compatibleCouples = Relation.objects.all().order_by('-compatibility')
 	return render(request, 'vDate/Q2.html', {'happyCouples': happyCouples, 'compatibleCouples': compatibleCouples})
