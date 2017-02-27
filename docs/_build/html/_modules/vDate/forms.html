@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vDate.forms &#8212; vDate 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for vDate.forms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django</span> <span class="k">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.constants</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">All the forms used by the HTML Templates and Django Views are declared here.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GetNumberForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.GetNumberForm">[docs]</a><span class="k">class</span> <span class="nc">GetNumberForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+	<span class="n">number</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GetGiftNumberForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.GetGiftNumberForm">[docs]</a><span class="k">class</span> <span class="nc">GetGiftNumberForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+	<span class="n">giftType</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">giftTypes</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">number</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BoyForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.BoyForm">[docs]</a><span class="k">class</span> <span class="nc">BoyForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+	<span class="n">boyType</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">committedBoyTypes</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BoyForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.BoyForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Boy</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;attractiveness&#39;</span><span class="p">,</span> <span class="s1">&#39;intelligenceLevel&#39;</span><span class="p">,</span> <span class="s1">&#39;isCommitted&#39;</span><span class="p">,</span> <span class="s1">&#39;budget&#39;</span><span class="p">,</span> <span class="s1">&#39;attractionRequirement&#39;</span><span class="p">,</span> <span class="s1">&#39;boyType&#39;</span><span class="p">)</span>
+		<span class="n">help_texts</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s1">&#39;attractiveness&#39;</span><span class="p">:</span> <span class="s1">&#39;Between 1 to 10&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;intelligenceLevel&#39;</span><span class="p">:</span> <span class="s1">&#39;Between 1 to 10&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;attractionRequirement&#39;</span><span class="p">:</span> <span class="s1">&#39;Between 1 to 10&#39;</span><span class="p">,</span>
+		<span class="p">}</span></div></div>
+
+<div class="viewcode-block" id="GirlForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.GirlForm">[docs]</a><span class="k">class</span> <span class="nc">GirlForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+	<span class="n">girlType</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">committedGirlTypes</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GirlForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.GirlForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Girl</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;attractiveness&#39;</span><span class="p">,</span> <span class="s1">&#39;intelligenceLevel&#39;</span><span class="p">,</span> <span class="s1">&#39;isCommitted&#39;</span><span class="p">,</span> <span class="s1">&#39;maintenanceBudget&#39;</span><span class="p">,</span> <span class="s1">&#39;datingCriteria&#39;</span><span class="p">,</span> <span class="s1">&#39;girlType&#39;</span><span class="p">)</span>
+		<span class="n">help_texts</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s1">&#39;attractiveness&#39;</span><span class="p">:</span> <span class="s1">&#39;Between 1 to 10&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;intelligenceLevel&#39;</span><span class="p">:</span> <span class="s1">&#39;Between 1 to 10&#39;</span><span class="p">,</span>
+		<span class="p">}</span></div></div>
+
+<div class="viewcode-block" id="EssentialGiftForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.EssentialGiftForm">[docs]</a><span class="k">class</span> <span class="nc">EssentialGiftForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<div class="viewcode-block" id="EssentialGiftForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.EssentialGiftForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">EssentialGift</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="LuxuryGiftForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.LuxuryGiftForm">[docs]</a><span class="k">class</span> <span class="nc">LuxuryGiftForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<div class="viewcode-block" id="LuxuryGiftForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.LuxuryGiftForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">LuxuryGift</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;luxuryRating&#39;</span><span class="p">,</span> <span class="s1">&#39;difficultyToObtain&#39;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="UtilityGiftForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.UtilityGiftForm">[docs]</a><span class="k">class</span> <span class="nc">UtilityGiftForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+	<span class="n">utilityClass</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">utilityClasses</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	
+<div class="viewcode-block" id="UtilityGiftForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.UtilityGiftForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">UtilityGift</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;utilityValue&#39;</span><span class="p">,</span> <span class="s1">&#39;utilityClass&#39;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="RelationForm"><a class="viewcode-back" href="../../vDate.html#vDate.forms.RelationForm">[docs]</a><span class="k">class</span> <span class="nc">RelationForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<div class="viewcode-block" id="RelationForm.Meta"><a class="viewcode-back" href="../../vDate.html#vDate.forms.RelationForm.Meta">[docs]</a>	<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Relation</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;boy&#39;</span><span class="p">,</span> <span class="s1">&#39;girl&#39;</span><span class="p">,</span> <span class="s1">&#39;commitOn&#39;</span><span class="p">,</span> <span class="s1">&#39;breakupOn&#39;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Raghav Khandelwal.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

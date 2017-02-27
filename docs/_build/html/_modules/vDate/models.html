@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vDate.models &#8212; vDate 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for vDate.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="k">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="k">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.core.validators</span> <span class="k">import</span> <span class="n">MaxValueValidator</span><span class="p">,</span> <span class="n">MinValueValidator</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="k">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">.constants</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on 26 February 2017</span>
+<span class="sd">.. module:: models</span>
+<span class="sd">	:platform: Unix, Windows</span>
+<span class="sd">	:synopsis: All the classes(models).</span>
+<span class="sd">.. projectauthor:: Raghav Khandelwal &lt;LIT2015002&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Girl"><a class="viewcode-back" href="../../vDate.html#vDate.models.Girl">[docs]</a><span class="k">class</span> <span class="nc">Girl</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Girl Object with all its attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+	<span class="n">attractiveness</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+	<span class="n">intelligenceLevel</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+	<span class="n">isCommitted</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">maintenanceBudget</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">datingCriteria</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">datingCriteriaChoices</span><span class="p">)</span>
+	<span class="n">girlType</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">committedGirlTypes</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+	
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+		
+<div class="viewcode-block" id="Girl.commit"><a class="viewcode-back" href="../../vDate.html#vDate.models.Girl.commit">[docs]</a>	<span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">isCommitted</span> <span class="o">=</span> <span class="kc">True</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Girl.leave"><a class="viewcode-back" href="../../vDate.html#vDate.models.Girl.leave">[docs]</a>	<span class="k">def</span> <span class="nf">leave</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">isCommitted</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div></div>
+	
+<div class="viewcode-block" id="Boy"><a class="viewcode-back" href="../../vDate.html#vDate.models.Boy">[docs]</a><span class="k">class</span> <span class="nc">Boy</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Boy Object with all its attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+	<span class="n">attractiveness</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+	<span class="n">intelligenceLevel</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+	<span class="n">isCommitted</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">budget</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">attractionRequirement</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+	<span class="n">boyType</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">committedBoyTypes</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+	
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+		
+<div class="viewcode-block" id="Boy.commit"><a class="viewcode-back" href="../../vDate.html#vDate.models.Boy.commit">[docs]</a>	<span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">isCommitted</span> <span class="o">=</span> <span class="kc">True</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Boy.leave"><a class="viewcode-back" href="../../vDate.html#vDate.models.Boy.leave">[docs]</a>	<span class="k">def</span> <span class="nf">leave</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">isCommitted</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Boy.increaseBudget"><a class="viewcode-back" href="../../vDate.html#vDate.models.Boy.increaseBudget">[docs]</a>	<span class="k">def</span> <span class="nf">increaseBudget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">increase</span><span class="p">):</span>
+		<span class="n">budget</span> <span class="o">=</span> <span class="n">budget</span> <span class="o">+</span> <span class="n">increase</span><span class="p">;</span></div></div>
+
+
+<div class="viewcode-block" id="EssentialGift"><a class="viewcode-back" href="../../vDate.html#vDate.models.EssentialGift">[docs]</a><span class="k">class</span> <span class="nc">EssentialGift</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Essential Gift Object with all its attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s2">&quot;Price: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, Value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LuxuryGift"><a class="viewcode-back" href="../../vDate.html#vDate.models.LuxuryGift">[docs]</a><span class="k">class</span> <span class="nc">LuxuryGift</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Luxury Gift Object with all its attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+	<span class="n">luxuryRating</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+	<span class="n">difficultyToObtain</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s2">&quot;Price: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, Value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UtilityGift"><a class="viewcode-back" href="../../vDate.html#vDate.models.UtilityGift">[docs]</a><span class="k">class</span> <span class="nc">UtilityGift</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Utility Object with all its attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+	<span class="n">utilityValue</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+	<span class="n">utilityClass</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">utilityClasses</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s2">&quot;Price: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, Value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Relation"><a class="viewcode-back" href="../../vDate.html#vDate.models.Relation">[docs]</a><span class="k">class</span> <span class="nc">Relation</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Relation Object with all its attributes, which represents the relation between committed boys and girls.</span>
+<span class="sd">	Supports breakup and finding compatibility, happiness, etc.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">boy</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Boy</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+	<span class="n">girl</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Girl</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+	<span class="n">commitOn</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+	<span class="n">breakupOn</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">compatibility</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+	<span class="n">happiness</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">breakupOn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> + </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+		<span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> was with </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Relation.breakup"><a class="viewcode-back" href="../../vDate.html#vDate.models.Relation.breakup">[docs]</a>	<span class="k">def</span> <span class="nf">breakup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Breaks up relationship. Sets girl and boy to not committed.</span>
+
+<span class="sd">		:param self: Object of type Relation</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">breakupOn</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">leave</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">leave</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Relation.findCompatibility"><a class="viewcode-back" href="../../vDate.html#vDate.models.Relation.findCompatibility">[docs]</a>	<span class="k">def</span> <span class="nf">findCompatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Finds compatibility between girl and boy in a relationship.</span>
+
+<span class="sd">		:param self: Object of type Relation</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">compatibility</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">budget</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">attractiveness</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">attractiveness</span><span class="p">))</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">intelligenceLevel</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">intelligenceLevel</span><span class="p">))</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compatibility</span></div>
+
+<div class="viewcode-block" id="Relation.findHappiness"><a class="viewcode-back" href="../../vDate.html#vDate.models.Relation.findHappiness">[docs]</a>	<span class="k">def</span> <span class="nf">findHappiness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Calculates girl and boy happiness to find happiness of couple.</span>
+
+<span class="sd">		:param self: Object of type Relation</span>
+<span class="sd">		:returns: Happiness of couple</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">total_cost</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+		<span class="n">gifts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exchanges</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+		<span class="k">for</span> <span class="n">gift</span> <span class="ow">in</span> <span class="n">gifts</span><span class="p">:</span>
+			<span class="n">total_cost</span> <span class="o">=</span> <span class="n">total_cost</span> <span class="o">+</span> <span class="n">gift</span><span class="o">.</span><span class="n">getGift</span><span class="p">()</span><span class="o">.</span><span class="n">price</span>
+
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">girlType</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">for</span> <span class="n">gift</span> <span class="ow">in</span> <span class="n">gifts</span><span class="p">:</span>
+				<span class="k">if</span> <span class="n">gift</span><span class="o">.</span><span class="n">giftType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+					<span class="n">total_cost</span> <span class="o">=</span> <span class="n">total_cost</span> <span class="o">+</span> <span class="n">gift</span><span class="o">.</span><span class="n">getGift</span><span class="p">()</span><span class="o">.</span><span class="n">price</span>
+			<span class="n">girlHappiness</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">total_cost</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span><span class="p">)</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">girlType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+			<span class="k">for</span> <span class="n">gift</span> <span class="ow">in</span> <span class="n">gifts</span><span class="p">:</span>
+				<span class="n">total_cost</span> <span class="o">=</span> <span class="n">total_cost</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">gift</span><span class="o">.</span><span class="n">getGift</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+			<span class="n">girlHappiness</span> <span class="o">=</span> <span class="n">total_cost</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">girlType</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+			<span class="k">try</span><span class="p">:</span>
+				<span class="n">girlHappiness</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">total_cost</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span><span class="p">)</span>
+			<span class="k">except</span> <span class="ne">OverflowError</span><span class="p">:</span>
+				<span class="n">girlHappiness</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="n">boyHappiness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">budget</span> <span class="o">-</span> <span class="n">total_cost</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+			<span class="n">boyHappiness</span> <span class="o">=</span> <span class="n">girlHappiness</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+			<span class="n">boyHappiness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">intelligenceLevel</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">boyHappiness</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span> <span class="p">(</span><span class="n">girlHappiness</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span></div></div>
+
+
+<div class="viewcode-block" id="Exchange"><a class="viewcode-back" href="../../vDate.html#vDate.models.Exchange">[docs]</a><span class="k">class</span> <span class="nc">Exchange</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Class representing the Exchange Object with all its attributes.</span>
+
+<span class="sd">	It models all the gift tranfers between the boy and the girl and the time stamp at which the exchange took place. Supports all 3 type of gifts.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">relation</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;vDate.Relation&#39;</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;exchanges&#39;</span><span class="p">)</span>
+	<span class="n">essentialGift</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;vDate.EssentialGift&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">luxuryGift</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;vDate.LuxuryGift&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">utilityGift</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;vDate.UtilityGift&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">giftType</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">giftTypes</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+	<span class="n">exchangeTime</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> got gift worth </span><span class="si">%.2f</span><span class="s2"> from </span><span class="si">%s</span><span class="s2"> on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getGift</span><span class="p">()</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exchangeTime</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Exchange.getGift"><a class="viewcode-back" href="../../vDate.html#vDate.models.Exchange.getGift">[docs]</a>	<span class="k">def</span> <span class="nf">getGift</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Returns the appropriate gift type.</span>
+
+<span class="sd">		:param self: Object of type Exchange</span>
+<span class="sd">		:returns: Type of gift in exchange </span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">giftType</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">essentialGift</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">giftType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">luxuryGift</span>
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">giftType</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">utilityGift</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="kc">None</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Raghav Khandelwal.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

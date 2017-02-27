@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vDate.new &#8212; vDate 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for vDate.new</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">vDate.names.name</span> <span class="k">import</span> <span class="n">get_full_name</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains all the utility functions called by our project.</span>
+<span class="sd">Generates random objects of all the classes as required by the specifications.</span>
+<span class="sd">:Author: Raghav Khandelwal</span>
+<span class="sd">:RollNo: LIT2015002</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="newRandomBoy"><a class="viewcode-back" href="../../vDate.html#vDate.new.newRandomBoy">[docs]</a><span class="k">def</span> <span class="nf">newRandomBoy</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generates a new Boy with random attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">get_full_name</span><span class="p">(</span><span class="s1">&#39;male&#39;</span><span class="p">)</span>
+	<span class="n">attractiveness</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">attractionMin</span><span class="p">,</span> <span class="n">attractionMax</span><span class="p">,</span> <span class="n">attractionMode</span><span class="p">)</span>
+	<span class="n">intelligenceLevel</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">intelligenceMin</span><span class="p">,</span> <span class="n">intelligenceMax</span><span class="p">,</span> <span class="n">intelligenceMode</span><span class="p">)</span>
+	<span class="n">budget</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">budgetMin</span><span class="p">,</span> <span class="n">budgetMax</span><span class="p">,</span> <span class="n">budgetMode</span><span class="p">)</span>
+	<span class="n">attractionRequirement</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">attractionMin</span><span class="p">,</span> <span class="n">attractionMax</span><span class="p">,</span> <span class="n">attractionMode</span><span class="p">)</span>
+	<span class="n">boyType</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+	<span class="n">boy</span> <span class="o">=</span> <span class="n">Boy</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">attractiveness</span><span class="o">=</span><span class="n">attractiveness</span><span class="p">,</span> <span class="n">intelligenceLevel</span><span class="o">=</span><span class="n">intelligenceLevel</span><span class="p">,</span> <span class="n">budget</span><span class="o">=</span><span class="n">budget</span><span class="p">,</span> <span class="n">attractionRequirement</span><span class="o">=</span><span class="n">attractionRequirement</span><span class="p">,</span> <span class="n">boyType</span><span class="o">=</span><span class="n">boyType</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="newRandomGirl"><a class="viewcode-back" href="../../vDate.html#vDate.new.newRandomGirl">[docs]</a><span class="k">def</span> <span class="nf">newRandomGirl</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generates a new Girl with random attributesl</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">get_full_name</span><span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">)</span>
+	<span class="n">attractiveness</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">attractionMin</span><span class="p">,</span> <span class="n">attractionMax</span><span class="p">,</span> <span class="n">attractionMode</span><span class="p">)</span>
+	<span class="n">intelligenceLevel</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">intelligenceMin</span><span class="p">,</span> <span class="n">intelligenceMax</span><span class="p">,</span> <span class="n">intelligenceMode</span><span class="p">)</span>
+	<span class="n">maintenanceBudget</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">maintenanceBudgetMin</span><span class="p">,</span> <span class="n">maintenanceBudgetMax</span><span class="p">,</span> <span class="n">maintenanceBudgetMode</span><span class="p">)</span>
+	<span class="n">datingCriteria</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+	<span class="n">girlType</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+	<span class="n">Girl</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">attractiveness</span><span class="o">=</span><span class="n">attractiveness</span><span class="p">,</span> <span class="n">intelligenceLevel</span><span class="o">=</span><span class="n">intelligenceLevel</span><span class="p">,</span> <span class="n">maintenanceBudget</span><span class="o">=</span><span class="n">maintenanceBudget</span><span class="p">,</span> <span class="n">datingCriteria</span><span class="o">=</span><span class="n">datingCriteria</span><span class="p">,</span> <span class="n">girlType</span><span class="o">=</span><span class="n">girlType</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="newEssentialGift"><a class="viewcode-back" href="../../vDate.html#vDate.new.newEssentialGift">[docs]</a><span class="k">def</span> <span class="nf">newEssentialGift</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generates a new Essential Gift with random attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span>  <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">giftMin</span><span class="p">,</span> <span class="n">giftMax</span><span class="p">,</span> <span class="n">giftMode</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">price</span>
+	<span class="n">EssentialGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="newLuxuryGift"><a class="viewcode-back" href="../../vDate.html#vDate.new.newLuxuryGift">[docs]</a><span class="k">def</span> <span class="nf">newLuxuryGift</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generates a new Luxury Gift with random attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span>  <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">luxuryGiftMin</span><span class="p">,</span> <span class="n">luxuryGiftMax</span><span class="p">,</span> <span class="n">luxuryGiftMode</span><span class="p">)</span>
+	<span class="n">rating</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">ratingMin</span><span class="p">,</span> <span class="n">ratingMax</span><span class="p">,</span> <span class="n">ratingMode</span><span class="p">)</span>
+	<span class="n">difficultyToObtain</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">ratingMin</span><span class="p">,</span> <span class="n">ratingMax</span><span class="p">,</span> <span class="n">ratingMode</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">rating</span>
+	<span class="n">LuxuryGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">luxuryRating</span><span class="o">=</span><span class="n">rating</span><span class="p">,</span> <span class="n">difficultyToObtain</span><span class="o">=</span><span class="n">difficultyToObtain</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="newUtilityGift"><a class="viewcode-back" href="../../vDate.html#vDate.new.newUtilityGift">[docs]</a><span class="k">def</span> <span class="nf">newUtilityGift</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generates a new Utility Gift with random attributes</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">price</span> <span class="o">=</span>  <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">giftMin</span><span class="p">,</span> <span class="n">giftMax</span><span class="p">,</span> <span class="n">giftMode</span><span class="p">)</span>
+	<span class="n">utilityValue</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">ratingMin</span><span class="p">,</span> <span class="n">ratingMax</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">ratingMode</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">utilityClass</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">utilityValue</span>
+	<span class="n">UtilityGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">utilityValue</span><span class="o">=</span><span class="n">utilityValue</span><span class="p">,</span> <span class="n">utilityClass</span><span class="o">=</span><span class="n">utilityClass</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="findMatch"><a class="viewcode-back" href="../../vDate.html#vDate.new.findMatch">[docs]</a><span class="k">def</span> <span class="nf">findMatch</span><span class="p">(</span><span class="n">girl</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Function finds an appropriate match for girl, after checking eligibility criterias and girls choice of boys.</span>
+<span class="sd">	It then creates a new relationship if an appropriate match is found.</span>
+
+<span class="sd">	:param girl: Object of type Girl whose match is to be found</span>
+<span class="sd">	:returns: New Relation object if match is found, otherwise None</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">if</span> <span class="n">girl</span><span class="o">.</span><span class="n">isCommitted</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">None</span>
+	<span class="n">boyList</span> <span class="o">=</span> <span class="n">Boy</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">isCommitted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">girl</span><span class="o">.</span><span class="n">datingCriteria</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="n">boyList</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;attractiveness&#39;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">girl</span><span class="o">.</span><span class="n">datingCriteria</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="n">boyList</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;budget&#39;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">girl</span><span class="o">.</span><span class="n">datingCriteria</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+		<span class="n">boyList</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;intelligence&#39;</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">boy</span> <span class="ow">in</span> <span class="n">boyList</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">boy</span><span class="o">.</span><span class="n">isCommitted</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="k">if</span> <span class="n">boy</span><span class="o">.</span><span class="n">budget</span> <span class="o">&gt;=</span> <span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span> <span class="ow">and</span> <span class="n">girl</span><span class="o">.</span><span class="n">attractiveness</span> <span class="o">&gt;=</span> <span class="n">boy</span><span class="o">.</span><span class="n">attractionRequirement</span><span class="p">:</span>
+			<span class="n">boy</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+			<span class="n">girl</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+			<span class="n">newRelation</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">(</span><span class="n">boy</span><span class="o">=</span><span class="n">boy</span><span class="p">,</span> <span class="n">girl</span><span class="o">=</span><span class="n">girl</span><span class="p">,</span> <span class="n">commitOn</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+			<span class="n">newRelation</span><span class="o">.</span><span class="n">findCompatibility</span><span class="p">()</span>
+			<span class="n">newRelation</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">force_insert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">newRelation</span>
+	<span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="breakupAll"><a class="viewcode-back" href="../../vDate.html#vDate.new.breakupAll">[docs]</a><span class="k">def</span> <span class="nf">breakupAll</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Utility function used to breakup all the relationships.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">Relation</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+		<span class="n">relation</span><span class="o">.</span><span class="n">breakup</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="performGifting"><a class="viewcode-back" href="../../vDate.html#vDate.new.performGifting">[docs]</a><span class="k">def</span> <span class="nf">performGifting</span><span class="p">(</span><span class="n">relation</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Main objective of this function is to perform the gifting between a couple.</span>
+<span class="sd">	Depending on the type of boy, it performs greedy search to find the best possible and fitting gift, and creates a new instance of exchange to model the gifting that took place. TimeStamp is incorporated for debugging purposes.</span>
+
+<span class="sd">	:param relation: Relation for which gifting is to be done. </span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">essential</span> <span class="o">=</span> <span class="n">EssentialGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+	<span class="n">luxury</span> <span class="o">=</span> <span class="n">LuxuryGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+	<span class="n">utility</span> <span class="o">=</span> <span class="n">UtilityGift</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+	<span class="n">ef</span> <span class="o">=</span> <span class="n">essential</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+	<span class="n">lf</span> <span class="o">=</span> <span class="n">luxury</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+	<span class="n">uf</span> <span class="o">=</span> <span class="n">utility</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="n">total_spent</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">e</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">u</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">while</span> <span class="n">total_spent</span> <span class="o">&lt;=</span> <span class="n">relation</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">essentialGift</span><span class="o">=</span><span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">luxuryGift</span><span class="o">=</span><span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">utilityGift</span><span class="o">=</span><span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+	<span class="k">elif</span> <span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="n">total_left</span> <span class="o">=</span> <span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">budget</span>
+		<span class="n">e</span> <span class="o">=</span> <span class="n">ef</span><span class="o">-</span><span class="mi">1</span>
+		<span class="n">u</span> <span class="o">=</span> <span class="n">uf</span><span class="o">-</span><span class="mi">1</span>
+		<span class="n">l</span> <span class="o">=</span> <span class="n">lf</span><span class="o">-</span><span class="mi">1</span>
+		<span class="k">while</span> <span class="n">total_left</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+				<span class="n">total_left</span> <span class="o">-=</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="k">if</span> <span class="n">total_left</span> <span class="o">&lt;</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span><span class="p">:</span>
+					<span class="k">break</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">essentialGift</span><span class="o">=</span><span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">-</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>  <span class="ow">and</span> <span class="n">e</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+				<span class="n">total_left</span> <span class="o">-=</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="k">if</span> <span class="n">total_left</span> <span class="o">&lt;</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span><span class="p">:</span>
+					<span class="k">break</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">luxuryGift</span><span class="o">=</span><span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">-</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">e</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+				<span class="n">total_left</span> <span class="o">-=</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="k">if</span> <span class="n">total_left</span> <span class="o">&lt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span><span class="p">:</span>
+					<span class="k">break</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">utilityGift</span><span class="o">=</span><span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">-</span><span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+
+	<span class="k">elif</span> <span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">boyType</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+		<span class="n">total_spent</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">e</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">u</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">while</span> <span class="n">total_spent</span> <span class="o">&lt;=</span> <span class="n">relation</span><span class="o">.</span><span class="n">girl</span><span class="o">.</span><span class="n">maintenanceBudget</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">essentialGift</span><span class="o">=</span><span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">essential</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="ow">and</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">luxuryGift</span><span class="o">=</span><span class="n">luxury</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">elif</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">ef</span> <span class="ow">and</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">uf</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">lf</span><span class="p">:</span>
+				<span class="n">total_spent</span> <span class="o">+=</span> <span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">price</span>
+				<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">utilityGift</span><span class="o">=</span><span class="n">utility</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+				<span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">+</span><span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+		<span class="k">if</span> <span class="n">luxury</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">relation</span><span class="o">.</span><span class="n">boy</span><span class="o">.</span><span class="n">budget</span> <span class="o">-</span> <span class="n">total_spent</span><span class="p">:</span>
+			<span class="n">Exchange</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">relation</span><span class="o">=</span><span class="n">relation</span><span class="p">,</span> <span class="n">giftType</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">luxuryGift</span><span class="o">=</span><span class="n">luxury</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">exchangeTime</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Raghav Khandelwal.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

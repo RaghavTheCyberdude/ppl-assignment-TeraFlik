@@ -1,0 +1,1289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vDate package &#8212; vDate 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to vDate’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vdate-package">
+<h1>vDate package<a class="headerlink" href="#vdate-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vDate.models">
+<span id="vdate-models-module"></span><h2>vDate.models module<a class="headerlink" href="#module-vDate.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="vDate.models.Boy">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">Boy</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Boy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Boy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Boy Object with all its attributes</p>
+<dl class="exception">
+<dt id="vDate.models.Boy.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.Boy.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.Boy.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">Boy.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.Boy.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.attractionRequirement">
+<code class="descclassname">Boy.</code><code class="descname">attractionRequirement</code><a class="headerlink" href="#vDate.models.Boy.attractionRequirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.attractiveness">
+<code class="descclassname">Boy.</code><code class="descname">attractiveness</code><a class="headerlink" href="#vDate.models.Boy.attractiveness" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.boyType">
+<code class="descclassname">Boy.</code><code class="descname">boyType</code><a class="headerlink" href="#vDate.models.Boy.boyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.budget">
+<code class="descclassname">Boy.</code><code class="descname">budget</code><a class="headerlink" href="#vDate.models.Boy.budget" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Boy.commit">
+<code class="descclassname">Boy.</code><code class="descname">commit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Boy.commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Boy.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Boy.get_boyType_display">
+<code class="descclassname">Boy.</code><code class="descname">get_boyType_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Boy.get_boyType_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.id">
+<code class="descclassname">Boy.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.Boy.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Boy.increaseBudget">
+<code class="descclassname">Boy.</code><code class="descname">increaseBudget</code><span class="sig-paren">(</span><em>increase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Boy.increaseBudget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Boy.increaseBudget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.intelligenceLevel">
+<code class="descclassname">Boy.</code><code class="descname">intelligenceLevel</code><a class="headerlink" href="#vDate.models.Boy.intelligenceLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.isCommitted">
+<code class="descclassname">Boy.</code><code class="descname">isCommitted</code><a class="headerlink" href="#vDate.models.Boy.isCommitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Boy.leave">
+<code class="descclassname">Boy.</code><code class="descname">leave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Boy.leave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Boy.leave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.name">
+<code class="descclassname">Boy.</code><code class="descname">name</code><a class="headerlink" href="#vDate.models.Boy.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.objects">
+<code class="descclassname">Boy.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.Boy.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Boy.relation_set">
+<code class="descclassname">Boy.</code><code class="descname">relation_set</code><a class="headerlink" href="#vDate.models.Boy.relation_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.EssentialGift">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">EssentialGift</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#EssentialGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.EssentialGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Essential Gift Object with all its attributes</p>
+<dl class="exception">
+<dt id="vDate.models.EssentialGift.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.EssentialGift.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.EssentialGift.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">EssentialGift.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.EssentialGift.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.EssentialGift.exchange_set">
+<code class="descclassname">EssentialGift.</code><code class="descname">exchange_set</code><a class="headerlink" href="#vDate.models.EssentialGift.exchange_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.EssentialGift.id">
+<code class="descclassname">EssentialGift.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.EssentialGift.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.EssentialGift.objects">
+<code class="descclassname">EssentialGift.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.EssentialGift.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.EssentialGift.price">
+<code class="descclassname">EssentialGift.</code><code class="descname">price</code><a class="headerlink" href="#vDate.models.EssentialGift.price" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.EssentialGift.value">
+<code class="descclassname">EssentialGift.</code><code class="descname">value</code><a class="headerlink" href="#vDate.models.EssentialGift.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.Exchange">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">Exchange</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Exchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Exchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Exchange Object with all its attributes.</p>
+<p>It models all the gift tranfers between the boy and the girl and the time stamp at which the exchange took place. Supports all 3 type of gifts.</p>
+<dl class="exception">
+<dt id="vDate.models.Exchange.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.Exchange.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.Exchange.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">Exchange.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.Exchange.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.essentialGift">
+<code class="descclassname">Exchange.</code><code class="descname">essentialGift</code><a class="headerlink" href="#vDate.models.Exchange.essentialGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.essentialGift_id">
+<code class="descclassname">Exchange.</code><code class="descname">essentialGift_id</code><a class="headerlink" href="#vDate.models.Exchange.essentialGift_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.exchangeTime">
+<code class="descclassname">Exchange.</code><code class="descname">exchangeTime</code><a class="headerlink" href="#vDate.models.Exchange.exchangeTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Exchange.getGift">
+<code class="descclassname">Exchange.</code><code class="descname">getGift</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Exchange.getGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Exchange.getGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the appropriate gift type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> &#8211; Object of type Exchange</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Type of gift in exchange</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Exchange.get_giftType_display">
+<code class="descclassname">Exchange.</code><code class="descname">get_giftType_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Exchange.get_giftType_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Exchange.get_next_by_exchangeTime">
+<code class="descclassname">Exchange.</code><code class="descname">get_next_by_exchangeTime</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Exchange.get_next_by_exchangeTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Exchange.get_previous_by_exchangeTime">
+<code class="descclassname">Exchange.</code><code class="descname">get_previous_by_exchangeTime</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Exchange.get_previous_by_exchangeTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.giftType">
+<code class="descclassname">Exchange.</code><code class="descname">giftType</code><a class="headerlink" href="#vDate.models.Exchange.giftType" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.id">
+<code class="descclassname">Exchange.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.Exchange.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.luxuryGift">
+<code class="descclassname">Exchange.</code><code class="descname">luxuryGift</code><a class="headerlink" href="#vDate.models.Exchange.luxuryGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.luxuryGift_id">
+<code class="descclassname">Exchange.</code><code class="descname">luxuryGift_id</code><a class="headerlink" href="#vDate.models.Exchange.luxuryGift_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.objects">
+<code class="descclassname">Exchange.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.Exchange.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.relation">
+<code class="descclassname">Exchange.</code><code class="descname">relation</code><a class="headerlink" href="#vDate.models.Exchange.relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.relation_id">
+<code class="descclassname">Exchange.</code><code class="descname">relation_id</code><a class="headerlink" href="#vDate.models.Exchange.relation_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.utilityGift">
+<code class="descclassname">Exchange.</code><code class="descname">utilityGift</code><a class="headerlink" href="#vDate.models.Exchange.utilityGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Exchange.utilityGift_id">
+<code class="descclassname">Exchange.</code><code class="descname">utilityGift_id</code><a class="headerlink" href="#vDate.models.Exchange.utilityGift_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.Girl">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">Girl</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Girl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Girl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Girl Object with all its attributes</p>
+<dl class="exception">
+<dt id="vDate.models.Girl.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.Girl.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.Girl.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">Girl.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.Girl.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.attractiveness">
+<code class="descclassname">Girl.</code><code class="descname">attractiveness</code><a class="headerlink" href="#vDate.models.Girl.attractiveness" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Girl.commit">
+<code class="descclassname">Girl.</code><code class="descname">commit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Girl.commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Girl.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.datingCriteria">
+<code class="descclassname">Girl.</code><code class="descname">datingCriteria</code><a class="headerlink" href="#vDate.models.Girl.datingCriteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Girl.get_datingCriteria_display">
+<code class="descclassname">Girl.</code><code class="descname">get_datingCriteria_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Girl.get_datingCriteria_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Girl.get_girlType_display">
+<code class="descclassname">Girl.</code><code class="descname">get_girlType_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Girl.get_girlType_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.girlType">
+<code class="descclassname">Girl.</code><code class="descname">girlType</code><a class="headerlink" href="#vDate.models.Girl.girlType" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.id">
+<code class="descclassname">Girl.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.Girl.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.intelligenceLevel">
+<code class="descclassname">Girl.</code><code class="descname">intelligenceLevel</code><a class="headerlink" href="#vDate.models.Girl.intelligenceLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.isCommitted">
+<code class="descclassname">Girl.</code><code class="descname">isCommitted</code><a class="headerlink" href="#vDate.models.Girl.isCommitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Girl.leave">
+<code class="descclassname">Girl.</code><code class="descname">leave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Girl.leave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Girl.leave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.maintenanceBudget">
+<code class="descclassname">Girl.</code><code class="descname">maintenanceBudget</code><a class="headerlink" href="#vDate.models.Girl.maintenanceBudget" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.name">
+<code class="descclassname">Girl.</code><code class="descname">name</code><a class="headerlink" href="#vDate.models.Girl.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.objects">
+<code class="descclassname">Girl.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.Girl.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Girl.relation_set">
+<code class="descclassname">Girl.</code><code class="descname">relation_set</code><a class="headerlink" href="#vDate.models.Girl.relation_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.LuxuryGift">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">LuxuryGift</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#LuxuryGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.LuxuryGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Luxury Gift Object with all its attributes</p>
+<dl class="exception">
+<dt id="vDate.models.LuxuryGift.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.LuxuryGift.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.LuxuryGift.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">LuxuryGift.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.LuxuryGift.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.difficultyToObtain">
+<code class="descclassname">LuxuryGift.</code><code class="descname">difficultyToObtain</code><a class="headerlink" href="#vDate.models.LuxuryGift.difficultyToObtain" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.exchange_set">
+<code class="descclassname">LuxuryGift.</code><code class="descname">exchange_set</code><a class="headerlink" href="#vDate.models.LuxuryGift.exchange_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.id">
+<code class="descclassname">LuxuryGift.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.LuxuryGift.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.luxuryRating">
+<code class="descclassname">LuxuryGift.</code><code class="descname">luxuryRating</code><a class="headerlink" href="#vDate.models.LuxuryGift.luxuryRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.objects">
+<code class="descclassname">LuxuryGift.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.LuxuryGift.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.price">
+<code class="descclassname">LuxuryGift.</code><code class="descname">price</code><a class="headerlink" href="#vDate.models.LuxuryGift.price" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.LuxuryGift.value">
+<code class="descclassname">LuxuryGift.</code><code class="descname">value</code><a class="headerlink" href="#vDate.models.LuxuryGift.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.Relation">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">Relation</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Relation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Relation Object with all its attributes, which represents the relation between committed boys and girls.
+Supports breakup and finding compatibility, happiness, etc.</p>
+<dl class="exception">
+<dt id="vDate.models.Relation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.Relation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.Relation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">Relation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.Relation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.boy">
+<code class="descclassname">Relation.</code><code class="descname">boy</code><a class="headerlink" href="#vDate.models.Relation.boy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.boy_id">
+<code class="descclassname">Relation.</code><code class="descname">boy_id</code><a class="headerlink" href="#vDate.models.Relation.boy_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Relation.breakup">
+<code class="descclassname">Relation.</code><code class="descname">breakup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Relation.breakup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Relation.breakup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Breaks up relationship. Sets girl and boy to not committed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> &#8211; Object of type Relation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.breakupOn">
+<code class="descclassname">Relation.</code><code class="descname">breakupOn</code><a class="headerlink" href="#vDate.models.Relation.breakupOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.commitOn">
+<code class="descclassname">Relation.</code><code class="descname">commitOn</code><a class="headerlink" href="#vDate.models.Relation.commitOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.compatibility">
+<code class="descclassname">Relation.</code><code class="descname">compatibility</code><a class="headerlink" href="#vDate.models.Relation.compatibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.exchanges">
+<code class="descclassname">Relation.</code><code class="descname">exchanges</code><a class="headerlink" href="#vDate.models.Relation.exchanges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Relation.findCompatibility">
+<code class="descclassname">Relation.</code><code class="descname">findCompatibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Relation.findCompatibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Relation.findCompatibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds compatibility between girl and boy in a relationship.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> &#8211; Object of type Relation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Relation.findHappiness">
+<code class="descclassname">Relation.</code><code class="descname">findHappiness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#Relation.findHappiness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.Relation.findHappiness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates girl and boy happiness to find happiness of couple.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> &#8211; Object of type Relation</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Happiness of couple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Relation.get_next_by_commitOn">
+<code class="descclassname">Relation.</code><code class="descname">get_next_by_commitOn</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Relation.get_next_by_commitOn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.Relation.get_previous_by_commitOn">
+<code class="descclassname">Relation.</code><code class="descname">get_previous_by_commitOn</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.Relation.get_previous_by_commitOn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.girl">
+<code class="descclassname">Relation.</code><code class="descname">girl</code><a class="headerlink" href="#vDate.models.Relation.girl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">child.parent</span></code> is a <code class="docutils literal"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.girl_id">
+<code class="descclassname">Relation.</code><code class="descname">girl_id</code><a class="headerlink" href="#vDate.models.Relation.girl_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.happiness">
+<code class="descclassname">Relation.</code><code class="descname">happiness</code><a class="headerlink" href="#vDate.models.Relation.happiness" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.id">
+<code class="descclassname">Relation.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.Relation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.Relation.objects">
+<code class="descclassname">Relation.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.Relation.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.models.UtilityGift">
+<em class="property">class </em><code class="descclassname">vDate.models.</code><code class="descname">UtilityGift</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/models.html#UtilityGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.models.UtilityGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Class representing the Utility Object with all its attributes</p>
+<dl class="exception">
+<dt id="vDate.models.UtilityGift.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#vDate.models.UtilityGift.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="vDate.models.UtilityGift.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">UtilityGift.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#vDate.models.UtilityGift.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.exchange_set">
+<code class="descclassname">UtilityGift.</code><code class="descname">exchange_set</code><a class="headerlink" href="#vDate.models.UtilityGift.exchange_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">parent.children</span></code> is a <code class="docutils literal"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vDate.models.UtilityGift.get_utilityClass_display">
+<code class="descclassname">UtilityGift.</code><code class="descname">get_utilityClass_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vDate.models.UtilityGift.get_utilityClass_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.id">
+<code class="descclassname">UtilityGift.</code><code class="descname">id</code><a class="headerlink" href="#vDate.models.UtilityGift.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.objects">
+<code class="descclassname">UtilityGift.</code><code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#vDate.models.UtilityGift.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.price">
+<code class="descclassname">UtilityGift.</code><code class="descname">price</code><a class="headerlink" href="#vDate.models.UtilityGift.price" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.utilityClass">
+<code class="descclassname">UtilityGift.</code><code class="descname">utilityClass</code><a class="headerlink" href="#vDate.models.UtilityGift.utilityClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.utilityValue">
+<code class="descclassname">UtilityGift.</code><code class="descname">utilityValue</code><a class="headerlink" href="#vDate.models.UtilityGift.utilityValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.models.UtilityGift.value">
+<code class="descclassname">UtilityGift.</code><code class="descname">value</code><a class="headerlink" href="#vDate.models.UtilityGift.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vDate.new">
+<span id="vdate-new-module"></span><h2>vDate.new module<a class="headerlink" href="#module-vDate.new" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="vDate.new.breakupAll">
+<code class="descclassname">vDate.new.</code><code class="descname">breakupAll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#breakupAll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.breakupAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function used to breakup all the relationships.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.findMatch">
+<code class="descclassname">vDate.new.</code><code class="descname">findMatch</code><span class="sig-paren">(</span><em>girl</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#findMatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.findMatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function finds an appropriate match for girl, after checking eligibility criterias and girls choice of boys.
+It then creates a new relationship if an appropriate match is found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>girl</strong> &#8211; Object of type Girl whose match is to be found</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">New Relation object if match is found, otherwise None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.newEssentialGift">
+<code class="descclassname">vDate.new.</code><code class="descname">newEssentialGift</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#newEssentialGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.newEssentialGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new Essential Gift with random attributes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.newLuxuryGift">
+<code class="descclassname">vDate.new.</code><code class="descname">newLuxuryGift</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#newLuxuryGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.newLuxuryGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new Luxury Gift with random attributes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.newRandomBoy">
+<code class="descclassname">vDate.new.</code><code class="descname">newRandomBoy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#newRandomBoy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.newRandomBoy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new Boy with random attributes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.newRandomGirl">
+<code class="descclassname">vDate.new.</code><code class="descname">newRandomGirl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#newRandomGirl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.newRandomGirl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new Girl with random attributesl</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.newUtilityGift">
+<code class="descclassname">vDate.new.</code><code class="descname">newUtilityGift</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#newUtilityGift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.newUtilityGift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new Utility Gift with random attributes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.new.performGifting">
+<code class="descclassname">vDate.new.</code><code class="descname">performGifting</code><span class="sig-paren">(</span><em>relation</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/new.html#performGifting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.new.performGifting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main objective of this function is to perform the gifting between a couple.
+Depending on the type of boy, it performs greedy search to find the best possible and fitting gift, and creates a new instance of exchange to model the gifting that took place. TimeStamp is incorporated for debugging purposes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>relation</strong> &#8211; Relation for which gifting is to be done.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-vDate.views">
+<span id="vdate-views-module"></span><h2>vDate.views module<a class="headerlink" href="#module-vDate.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="vDate.views.boys">
+<code class="descclassname">vDate.views.</code><code class="descname">boys</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#boys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.boys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints list of all boys.
+Using POST form recieves the number of random entries to generate for the boy class.
+Can create a custom Boy using another POST form.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.views.deleteEntries">
+<code class="descclassname">vDate.views.</code><code class="descname">deleteEntries</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#deleteEntries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.deleteEntries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Purpose of this View is to serve the &#8220;Delete all&#8221; button at the end of all pages to get rid of the records and insert new records to database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.views.gifts">
+<code class="descclassname">vDate.views.</code><code class="descname">gifts</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#gifts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.gifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints list of all Gifts- Essential, Luxury and Utility Gifts.
+Using POST form recieves the number of random entries to generate for the a particular gift class.
+Can create a custom Gifts of required type using 3 other POST forms.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.views.girls">
+<code class="descclassname">vDate.views.</code><code class="descname">girls</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#girls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.girls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints list of all girls.
+Using POST form recieves the number of random entries to generate for the girl class.
+Can create a custom Girl using another POST form.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="vDate.views.home">
+<code class="descclassname">vDate.views.</code><code class="descname">home</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#home"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.home" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="vDate.views.relations">
+<code class="descclassname">vDate.views.</code><code class="descname">relations</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/views.html#relations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.views.relations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints list of all the relations currently existing.
+Using POST form recieves the number of random relations to create subject to availability of suitable matches.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-vDate.forms">
+<span id="vdate-forms-module"></span><h2>vDate.forms module<a class="headerlink" href="#module-vDate.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="vDate.forms.BoyForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">BoyForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#BoyForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.BoyForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.BoyForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#BoyForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.BoyForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('name', 'attractiveness', 'intelligenceLevel', 'isCommitted', 'budget', 'attractionRequirement', 'boyType')</em><a class="headerlink" href="#vDate.forms.BoyForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.Meta.help_texts">
+<code class="descname">help_texts</code><em class="property"> = {'intelligenceLevel': 'Between 1 to 10', 'attractiveness': 'Between 1 to 10', 'attractionRequirement': 'Between 1 to 10'}</em><a class="headerlink" href="#vDate.forms.BoyForm.Meta.help_texts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.BoyForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Boy</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.base_fields">
+<code class="descclassname">BoyForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('name', &lt;django.forms.fields.CharField object&gt;), ('attractiveness', &lt;django.forms.fields.FloatField object&gt;), ('intelligenceLevel', &lt;django.forms.fields.FloatField object&gt;), ('isCommitted', &lt;django.forms.fields.BooleanField object&gt;), ('budget', &lt;django.forms.fields.DecimalField object&gt;), ('attractionRequirement', &lt;django.forms.fields.FloatField object&gt;), ('boyType', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.BoyForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.declared_fields">
+<code class="descclassname">BoyForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict([('boyType', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.BoyForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.BoyForm.media">
+<code class="descclassname">BoyForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.BoyForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.EssentialGiftForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">EssentialGiftForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#EssentialGiftForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.EssentialGiftForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.EssentialGiftForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#EssentialGiftForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.EssentialGiftForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.EssentialGiftForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('price', 'value')</em><a class="headerlink" href="#vDate.forms.EssentialGiftForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.EssentialGiftForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.EssentialGiftForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">EssentialGift</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.EssentialGiftForm.base_fields">
+<code class="descclassname">EssentialGiftForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('price', &lt;django.forms.fields.DecimalField object&gt;), ('value', &lt;django.forms.fields.FloatField object&gt;)])</em><a class="headerlink" href="#vDate.forms.EssentialGiftForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.EssentialGiftForm.declared_fields">
+<code class="descclassname">EssentialGiftForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict()</em><a class="headerlink" href="#vDate.forms.EssentialGiftForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.EssentialGiftForm.media">
+<code class="descclassname">EssentialGiftForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.EssentialGiftForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.GetGiftNumberForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">GetGiftNumberForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>field_order=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#GetGiftNumberForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.GetGiftNumberForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.GetGiftNumberForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = OrderedDict([('giftType', &lt;django.forms.fields.ChoiceField object&gt;), ('number', &lt;django.forms.fields.IntegerField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GetGiftNumberForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GetGiftNumberForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = OrderedDict([('giftType', &lt;django.forms.fields.ChoiceField object&gt;), ('number', &lt;django.forms.fields.IntegerField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GetGiftNumberForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GetGiftNumberForm.media">
+<code class="descname">media</code><a class="headerlink" href="#vDate.forms.GetGiftNumberForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.GetNumberForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">GetNumberForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>field_order=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#GetNumberForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.GetNumberForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.GetNumberForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = OrderedDict([('number', &lt;django.forms.fields.IntegerField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GetNumberForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GetNumberForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = OrderedDict([('number', &lt;django.forms.fields.IntegerField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GetNumberForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GetNumberForm.media">
+<code class="descname">media</code><a class="headerlink" href="#vDate.forms.GetNumberForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.GirlForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">GirlForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#GirlForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.GirlForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.GirlForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#GirlForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.GirlForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('name', 'attractiveness', 'intelligenceLevel', 'isCommitted', 'maintenanceBudget', 'datingCriteria', 'girlType')</em><a class="headerlink" href="#vDate.forms.GirlForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.Meta.help_texts">
+<code class="descname">help_texts</code><em class="property"> = {'intelligenceLevel': 'Between 1 to 10', 'attractiveness': 'Between 1 to 10'}</em><a class="headerlink" href="#vDate.forms.GirlForm.Meta.help_texts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.GirlForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Girl</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.base_fields">
+<code class="descclassname">GirlForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('name', &lt;django.forms.fields.CharField object&gt;), ('attractiveness', &lt;django.forms.fields.FloatField object&gt;), ('intelligenceLevel', &lt;django.forms.fields.FloatField object&gt;), ('isCommitted', &lt;django.forms.fields.BooleanField object&gt;), ('maintenanceBudget', &lt;django.forms.fields.DecimalField object&gt;), ('datingCriteria', &lt;django.forms.fields.TypedChoiceField object&gt;), ('girlType', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GirlForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.declared_fields">
+<code class="descclassname">GirlForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict([('girlType', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.GirlForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.GirlForm.media">
+<code class="descclassname">GirlForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.GirlForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.LuxuryGiftForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">LuxuryGiftForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#LuxuryGiftForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.LuxuryGiftForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.LuxuryGiftForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#LuxuryGiftForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.LuxuryGiftForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('price', 'value', 'luxuryRating', 'difficultyToObtain')</em><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.LuxuryGiftForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">LuxuryGift</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.LuxuryGiftForm.base_fields">
+<code class="descclassname">LuxuryGiftForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('price', &lt;django.forms.fields.DecimalField object&gt;), ('value', &lt;django.forms.fields.FloatField object&gt;), ('luxuryRating', &lt;django.forms.fields.FloatField object&gt;), ('difficultyToObtain', &lt;django.forms.fields.FloatField object&gt;)])</em><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.LuxuryGiftForm.declared_fields">
+<code class="descclassname">LuxuryGiftForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict()</em><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.LuxuryGiftForm.media">
+<code class="descclassname">LuxuryGiftForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.LuxuryGiftForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.RelationForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">RelationForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#RelationForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.RelationForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.RelationForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#RelationForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.RelationForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.RelationForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('boy', 'girl', 'commitOn', 'breakupOn')</em><a class="headerlink" href="#vDate.forms.RelationForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.RelationForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.RelationForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Relation</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.RelationForm.base_fields">
+<code class="descclassname">RelationForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('boy', &lt;django.forms.models.ModelChoiceField object&gt;), ('girl', &lt;django.forms.models.ModelChoiceField object&gt;), ('commitOn', &lt;django.forms.fields.DateTimeField object&gt;), ('breakupOn', &lt;django.forms.fields.DateTimeField object&gt;)])</em><a class="headerlink" href="#vDate.forms.RelationForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.RelationForm.declared_fields">
+<code class="descclassname">RelationForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict()</em><a class="headerlink" href="#vDate.forms.RelationForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.RelationForm.media">
+<code class="descclassname">RelationForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.RelationForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vDate.forms.UtilityGiftForm">
+<em class="property">class </em><code class="descclassname">vDate.forms.</code><code class="descname">UtilityGiftForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vDate/forms.html#UtilityGiftForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.UtilityGiftForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="vDate.forms.UtilityGiftForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="reference internal" href="_modules/vDate/forms.html#UtilityGiftForm.Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vDate.forms.UtilityGiftForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="vDate.forms.UtilityGiftForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('price', 'value', 'utilityValue', 'utilityClass')</em><a class="headerlink" href="#vDate.forms.UtilityGiftForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.UtilityGiftForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#vDate.forms.UtilityGiftForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">UtilityGift</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.UtilityGiftForm.base_fields">
+<code class="descclassname">UtilityGiftForm.</code><code class="descname">base_fields</code><em class="property"> = OrderedDict([('price', &lt;django.forms.fields.DecimalField object&gt;), ('value', &lt;django.forms.fields.FloatField object&gt;), ('utilityValue', &lt;django.forms.fields.FloatField object&gt;), ('utilityClass', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.UtilityGiftForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.UtilityGiftForm.declared_fields">
+<code class="descclassname">UtilityGiftForm.</code><code class="descname">declared_fields</code><em class="property"> = OrderedDict([('utilityClass', &lt;django.forms.fields.ChoiceField object&gt;)])</em><a class="headerlink" href="#vDate.forms.UtilityGiftForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vDate.forms.UtilityGiftForm.media">
+<code class="descclassname">UtilityGiftForm.</code><code class="descname">media</code><a class="headerlink" href="#vDate.forms.UtilityGiftForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vDate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vDate" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">vDate package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-vDate.models">vDate.models module</a></li>
+<li><a class="reference internal" href="#module-vDate.new">vDate.new module</a></li>
+<li><a class="reference internal" href="#module-vDate.views">vDate.views module</a></li>
+<li><a class="reference internal" href="#module-vDate.forms">vDate.forms module</a></li>
+<li><a class="reference internal" href="#module-vDate">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to vDate&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vDate.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Raghav Khandelwal.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vDate.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
