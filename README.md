@@ -2,12 +2,19 @@
 >&copy;2015, Raghav Khandelwal, LIT2015002, [TeraFlik](http://www.teraflik.com)
 
 ##Installation
-    python manage.py runserver
+- You must have python installed and in your system path to run webserver.  
+```
+    pip install --upgrade pip  
+    pip install django  
+    python manage.py makemigrations vDate  
+    python manage.py migrate vDate  
+    python manage.py runserver  
+```   
 - Then open your browser and go to http://127.0.0.1:8000/  
-- Make sure to add the address to list of proxy exceptions
+- Make sure to add the address to list of proxy exceptions.
 
 ##Description
-This is the PPL Assignment made by Raghav Khandelwal on Django. See the [Documentation](). 
+This is the PPL Assignment made by Raghav Khandelwal on Django. See the [Documentation](https://ppl-iiita.github.io/ppl-assignment-TeraFlik/).   
 Django is a free and open-source web framework, written in Python, which follows the model-view-template architectural pattern.
 
 1. Fully functional Web App, on sqlite3, a simple database management system.
