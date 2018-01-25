@@ -1,10 +1,10 @@
 # vDate - Virtual Dating
 >&copy;2015, Raghav Khandelwal, LIT2015002, [TeraFlik](http://www.teraflik.com)
 
-##Installation
+## Installation
 - You must have **python3** installed and in your system path to run webserver. 
 
-###Windows
+### Windows
 
     pip install --upgrade pip  
     pip install --upgrade django  
@@ -12,7 +12,7 @@
     python manage.py migrate  
     python manage.py runserver  
     
-###Linux (Ubuntu)
+### Linux (Ubuntu)
 
     sudo apt-get install python3-pip  
     pip3 install --upgrade django
@@ -23,7 +23,7 @@
 - Then open your browser and go to http://127.0.0.1:8000/  
 - Make sure to add the address to list of proxy exceptions.
 
-##Description
+## Description
 This is the PPL Assignment made by Raghav Khandelwal on Django. See the [Documentation](https://ppl-iiita.github.io/ppl-assignment-TeraFlik/).   
 Django is a free and open-source web framework, written in Python, which follows the model-view-template architectural pattern.
 
@@ -33,6 +33,6 @@ Django is a free and open-source web framework, written in Python, which follows
 4. All form requests through POST, ensuring security.
 5. Easily extensible for future updates.
 
-##Tools
+## Tools
 1. [Sphinx v1.5.3](http://www.sphinx-doc.org/en/stable/) used for generating documentation.
 2. [django](https://www.djangoproject.com/) framework to create the application.
